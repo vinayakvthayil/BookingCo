@@ -1,0 +1,1856 @@
+/* Reset default browser styles */
+body, h1, h2, h3, p, ul, li, button {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+/* Basic styling */
+footer, header{
+    background-color:none;
+    color: #fff;
+    padding: 10px 20px;
+    align-items: center;
+
+}
+header {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+ /* Change the background color as needed */
+    /* Add any other styling properties for the scrolled header */
+
+body {
+    background: url('/Images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.header, .hero {
+    background:none;
+    padding: 20px;
+    text-align: center;
+}
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 50px;
+    margin-top: 30px;
+    text-align: center;
+    font-size: larger;
+}
+footer p {
+    margin-bottom: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+.social-links{
+    margin-top: 20px;
+    text-align:justify
+
+}
+footer a{
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+.additional-links{
+    margin-top: 20px;
+    text-align: right;
+}
+a {
+    text-decoration: none;
+    color: #fff;
+    padding: auto;
+    text-align: center;
+    font-style:normal;
+}
+.search .search-bar{
+    background-color:transparent;
+    padding:auto;
+    text-align: center;
+
+}
+/* havor for a slide underline*/
+a:hover {
+    text-decoration: none;
+    color: wheat;
+
+}
+header nav ul{
+    list-style-type: none;
+    text-align: right;
+    text-decoration: none;
+    transition: transform 0.3s ease-in-out;
+}
+header nav ul li:havor{
+    transform: scale(1.1);
+}
+@media (max-width:768px){
+    header nav ul{
+        display: none;
+    }
+    header nav ul li{
+        display: block;
+        margin-bottom: 10px;
+    }
+}
+header span{
+    color: #ccc;
+    margin-left: 10px;
+}
+.featured-hotels h2{
+    color: white;
+    font-family:'Inter', 'sans-serif';
+    font-weight: bold;
+    font-size: 3rem;
+
+}
+.hotel-item{
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    flex: 0 0 300px;
+}    
+.hotel-item {
+    transition: transform 0.3s ease-in-out; /* Add transition effect for smooth scaling */
+}
+
+.hotel-item:hover {
+    transform: scale(1.05); /* Scale up the card by 5% on hover */
+}
+
+.featured-hotels h3{
+    color: black;
+    font-size: 1.8rem;
+    font-family: Forte;
+    margin-bottom: 10px
+}
+.featured-hotels a {
+    color: #fff;
+    border-radius: 10px;
+    text-decoration: wheat;
+    padding: 10px 20px;
+    margin-top: 30px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.featured-hotels span{
+    margin-bottom: 5px;
+    margin-top: 15px;
+    color:black;
+    font-size: 1em;
+    border-color: transparent;
+    border: 1px; /* Add a border */
+    padding: 10px; /* Add some padding */
+    display: inline-block; /* Make it a block element */
+    border-radius: 100px;
+    background-color:lightblue;
+}
+
+header nav ul li {
+    margin-top: 5px;
+    display:inline-block;
+    margin-right: 50px;
+    font-size: 5.5mm;
+    font-weight: bold;
+    color: inherit; /* or any valid color value */
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.hero {
+    background-size: cover;
+    background-position: center;
+    color:transparent;
+    text-align: center;
+    
+}
+
+.hero h1 {
+    padding-top: 100px;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #fff;
+    font-family: Forte;
+}
+
+.hero p {
+    font-size: 3em;
+    margin-bottom: 30px;
+    color: #fff;
+    font-family:'Inter', 'sans-serif';
+    font-weight: bold;
+}
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    cursor: pointer;
+    background-color:rgba(0, 0, 0, 0.5);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+}
+.cta-btn {
+    display: inline-block;
+    background-color: #ff6600;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.cta-btn:hover {
+    background-color:blue;
+}
+.search {
+    background-color:white;
+    padding: 40px;
+    margin-left: 200px;
+    margin-right: 400px;
+    margin-top: 100px;
+    text-align: center;
+    border-radius: 20px;
+    width: 1100px;
+    display: auto; /* Change this from column to row */
+}
+.search-bar select {
+    width: 200px;
+    padding: 13px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #333;
+  }
+  
+  /* Style for the dropdown options */
+  .search-bar option {
+    padding: 5px 10px;
+  }
+  
+  /* Style for the dropdown arrow */
+  .search-bar select:after {
+    content: '\25BC';
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+  
+.search-bar {
+    margin: 0 auto;
+    width: 300px;
+
+}
+.search-bar label{
+    display: auto;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    text-align: left;
+    color: #333;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.search-bar input{
+    padding: 10px;
+    margin-right: 45px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-bar button {
+    background-color: #ff6600;
+    color: #fff;
+    border:none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 10px 20px;
+    display: inline-block;
+    position: relative; 
+    top: 35px; 
+    left: 0px; 
+}
+.social-links img{
+    margin-left: 10px;
+    margin-bottom: 5px;
+    height: 30px;
+    width: auto;
+    display: inline-block;
+    background: #f6f9ff;
+    border-radius: 10px;
+    padding: 5px;
+}
+.social-links img:hover{
+    background: #016cec;
+}
+
+.featured-hotels {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.hotel-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.hotel-item {
+    flex: 0 0 300px;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: rgba(249, 249, 249, 0.8); /* Use rgba for background color with transparency */
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+}
+
+.hotel-item img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+.social-links a {
+    margin: 0 10px;
+    margin-bottom: 5px;
+}
+
+.additional-links a {
+    margin: 0 10px;
+    color: #ccc;
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+p,a,h1,h2,h3,h4 {
+    margin: 0;
+    padding: 0;
+}
+
+.section-team {
+    font-family: "Poppins", sans-serif;
+    padding: 80px 0;
+}
+
+.section-team .header-section {
+    margin-bottom: 50px;
+}
+
+.section-team .header-section .small-title {
+    margin-bottom: 25px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #3e64ff;
+}
+
+.section-team .header-section .title {
+    font-weight: 700;
+    font-size: 35px;
+}
+
+.section-team .single-person {
+    margin-top: 30px;
+    padding: 30px;
+    background-color: #f6f9ff;
+    border-radius: 5px;
+}
+
+.section-team .single-person:hover {
+    background: linear-gradient(to right, #016cec, #00b5f7);
+}
+
+.section-team .single-person .person-image {
+    position: relative;
+    margin-bottom: 50px;
+    border-radius: 50%;
+    border: 4px dashed transparent;
+    transition: padding .3s;
+}
+
+.section-team .single-person:hover .person-image {
+    padding: 12px;
+    border: 4px dashed #fff;
+}
+
+.section-team .single-person .person-image img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.section-team .single-person .person-image .icon {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%,50%);
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    background: linear-gradient(to right, #016cec, #00b5f7);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 24px;
+}
+
+.section-team .single-person:hover .person-image .icon {
+    background: none;
+    background-color: #fff;
+    color: #016cec;
+}
+
+.section-team .single-person .person-info .full-name {
+    margin-bottom: 10px;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.section-team .single-person .person-info .speciality {
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #016cec;
+}
+
+.section-team .single-person:hover .full-name,
+.section-team .single-person:hover .speciality {
+    color: #fff;
+}
+
+div.elem-group {
+    margin: 20px 0;
+}
+
+div.elem-group.inlined {
+    width: 49%;
+    display: inline-block;
+    float: left;
+    margin-left: 1%;
+}
+
+
+div.elem-group.inlined input {
+    width: 95%;
+    display: inline-block;
+}
+
+.booking-form{
+    position: relative;
+    max-width: 642px;
+    width: 100%;
+    margin: auto;
+    padding: 40px;
+    overflow: hidden;
+    background-color:white;
+    background-size: cover;
+    border-radius: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    z-index: 20
+}
+.booking-form::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: -1
+}
+.booking-form .form-header{
+    text-align: center;
+    position: relative;
+    margin-bottom: 30px
+}
+.booking-form .form-header h1{
+    font-weight: 700;
+    text-transform: capitalize;
+    font-size: 42px;
+    margin: 0px;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.booking-form .form-group{
+    position: relative;
+    margin-bottom: 30px
+}
+.booking-form .form-control{
+    background-color: rgba(255, 255, 255, 0.2);
+    height: 60px;
+    padding: 0px 25px;
+    border: none;
+    border-radius: 40px;
+    color: white;
+    -webkit-box-shadow: 0px 0px 0px 2px transparent;
+    box-shadow: 0px 0px 0px 2px transparent;
+    -webkit-transition: 0.2s;
+    transition: 0.2s
+}
+.booking-form{
+    position: relative;
+    max-width: 642px;
+    width: 100%;
+    margin: auto;
+    padding: 40px;
+    overflow: hidden;
+    background-size: cover;
+    border-radius: 5px;
+    z-index: 20;
+    background-color: rgba(249, 249, 249, 0.8); /* Use rgba for background color with transparency */
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.2); /* Add a subtle shadow effect */
+
+}
+.booking-form .form-control::-webkit-input-placeholder{
+    color: rgba(255, 255, 255, 0.5)
+}
+.booking-form .form-control:-ms-input-placeholder{
+    color: rgba(255, 255, 255, 0.5)
+}
+.booking-form .form-control::placeholder{
+    color: rgba(255, 255, 255, 0.5)
+}
+.booking-form .form-control:focus{
+    -webkit-box-shadow: 0px 0px 0px 2px #ff8846;
+    box-shadow: 0px 0px 0px 2px #ff8846
+}
+.booking-form input[type="date"].form-control{
+    padding-top: 16px
+}
+.booking-form input[type="date"].form-control:invalid{
+    color: rgba(255, 255, 255, 0.5)
+}
+.booking-form input[type="date"].form-control+.form-label{
+    opacity: 1;
+    top: 10px
+}
+.booking-form select.form-control{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none
+}
+.booking-form select.form-control:invalid{
+    color: rgba(255, 255, 255, 0.5)
+}
+.booking-form select.form-control+.select-arrow{
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 32px;
+    line-height: 32px;
+    height: 32px;
+    text-align: center;
+    pointer-events: none;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px
+}
+.booking-form select.form-control+.select-arrow:after{
+    content: '\279C';
+    display: block;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg)
+}
+.booking-form select.form-control option{
+    color: #000
+}
+.booking-form .form-label{
+    position: absolute;
+    top: -10px;
+    left: 25px;
+    opacity: 0;
+    color:white;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    height: 15px;
+    line-height: 15px;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all
+}
+.booking-form .form-group.input-not-empty .form-control{
+    padding-top: 16px
+}
+.booking-form .form-group.input-not-empty .form-label{
+    opacity: 1;
+    top: 10px
+}
+.booking-form .submit-btn{
+    color: #fff;
+    background-color: #e35e0a;
+    font-weight: 700;
+    height: 60px;
+    margin-top: 5px;
+    padding: 20px;
+    width: 100%;
+    border-radius: 40px;
+    border: none;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: 1.3px;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all
+}
+.booking-form .submit-btn:hover, .booking-form .submit-btn:focus{
+    opacity: 0.9
+}
+.login-container {
+    position: relative;
+    max-width: 642px;
+    width: 100%;
+    margin: auto;
+    padding: 40px;
+    overflow: hidden;
+    background-size: cover;
+    border-radius: 5px;
+    z-index: 20;
+    background-color: rgba(249, 249, 249, 0.8); /* Use rgba for background color with transparency */
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.2); /* Add a subtle shadow effect */
+}
+
+.login-container h1 {
+    color:#000; /* Change text color for headings */
+    margin-bottom: 20px;
+    text-align: center;
+    font-family:'Inter', 'sans-serif';
+    font-size: 3rem;
+    font-weight: bold;
+}
+.form-group {
+    margin-bottom: 20px; /* Add spacing between form groups */
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+    color:#000; /* Change text color for labels */
+    text-transform: uppercase;
+    font-family: Calibri;
+    border-radius: 10px;
+}
+.password-container {
+    position: relative;
+    max-width: 642px;
+    width: 100%;
+    margin: auto;
+    padding: 0;
+    overflow: hidden;
+    background-size: cover;
+    border-radius: 5px;
+    z-index: 20;
+    color:black;
+}
+
+.form-check label{
+    color:black;
+}
+.login-container a{
+    color: #000;
+    text-decoration: none;
+    margin-top: 20px;
+}
+.login-container p{
+    margin-top: 10px;
+    color: black;
+    margin-left: 10px;
+}
+.login-container h5{
+    margin-top: 20px;
+    text-align: center;
+}
+.social-login {
+    margin-top: 0px;
+    text-align: center;
+    color: #f9f9f9;
+}
+
+.login-container button {
+    margin-top: 15px;
+    margin-left: 15px;
+    background-color: #e35e0a; /* Change button background color */
+    color: #fff; /* Change text color */
+    cursor: pointer; /* Set the mouse*/
+}
+
+.signupbox{
+    position: relative;
+    max-width: 642px;
+    width: 100%;
+    margin: auto;
+    padding: 40px;
+    overflow: hidden;
+    background-size: cover;
+    border-radius: 5px;
+    z-index: 20;
+    background-color: rgba(249, 249, 249, 0.8); /* Use rgba for background color with transparency */
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+}
+.signupbox h1{
+    color: black;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family:'Inter', 'sans-serif';
+    font-size: 3rem;
+    font-weight: bold;
+}
+.signupbox .form-group label{
+    color:black;
+}
+.signupbox p{
+    margin-top: 10px;
+    color:black;
+    margin-left: 10px;
+}
+.signupbox a{
+    color: #000;
+}
+.signupbox button{
+    margin-top: 15px;
+    margin-left: 15px;
+    background-color: #e35e0a;
+    color: #fff;
+    cursor: pointer;
+}
+
+.otp-container{
+    position: relative;
+    max-width: 642px;
+    width: 100%;
+    margin: auto;
+    padding: 40px;
+    overflow: hidden;
+    background-size: cover;
+    border-radius: 5px;
+    z-index: 20;
+    background-color: transparent;
+}
+.otp-container h1{
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family:'Inter', 'sans-serif';
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+.top-destination {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.top-destination h2 {
+    color: #fff;
+    font-family:'Inter', 'sans-serif';
+    font-weight: bold;
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.destination-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.destination-item {
+    border-radius: 10px;
+    padding: 20px;
+    transition: transform 0.3s ease;
+    background-color: rgba(249, 249, 249, 0.8); /* Use rgba for background color with transparency */
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+}
+
+.destination-item:hover {
+    transform: translateY(-5px);
+}
+
+.destination-item img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.destination-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+
+}
+
+footer span{
+    margin-bottom: 55px;
+    color:white;
+    font-size: 1em;
+    border-color: transparent;
+    border: 1px; /* Add a border */
+    padding: 10px; /* Add some padding */
+    display: inline-block; /* Make it a block element */
+    border-radius: 100px;
+}
+
+.forgot-container h1{
+    color: black;
+    margin-bottom: 20px;
+    text-align: left;
+    font-family:'Inter', 'sans-serif';
+    font-size: 3rem;
+    font-weight: bold;
+    white-space: nowrap;
+    margin-right: 20px;
+}
+.forgot-container{
+    position: relative;
+    max-width: 642px;
+    width: 100%;
+    margin: auto;
+    padding: 40px;
+    border-color: none;
+    background-color: rgba(249, 249, 249, 0.8); /* Use rgba for background color with transparency */
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+ }
+/* Dropdown Button */
+/* Dropdown Button */
+.dropdown-content {
+    display: none;
+    position: fixed;
+    background-color: #f9f9f9;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    right: 15px;
+    border-radius: 8px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color:wheat;
+}
+
+/* Show the dropdown menu on hover */
+.user-profile:hover .dropdown-content {
+    display: block;
+}
+
+.profile-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 5px;
+    border-radius: 10px;
+    background-color: rgba(249, 249, 249, 0.8); /* Use rgba for background color with transparency */
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+}
+
+.profile-header h3 {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.profile-header p {
+    margin-top: 5px;
+    color: #666;
+}
+
+.profile-details {
+    margin-top: 20px;
+}
+.profile-details h4{
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.profile-info label {
+    margin-bottom: 10px;
+    font-family: calibri;
+    font-size: large;
+    text-transform: uppercase;
+}
+.person-info p{
+    margin-bottom: 10px;
+    font-family: calibri;
+    font-size: large;
+    text-transform: uppercase;
+}
+.profile-info label {
+    font-weight: bold;
+}
+
+.profile-info p {
+    margin: 0;
+}
+.profile-info button{
+    margin-top: 10px;
+    border: none;
+    background-color: orange;
+    cursor: pointer;
+    outline: none;
+
+}
+.hotel-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+.hotel {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    flex: 1 0 21%; /* This will make the items take up approximately 1/4 of the container's width, adjusting for margin */
+    margin: 1%; /* Adjust margin as needed */
+    transition: transform 0.3s; /* Add smooth transition effect */
+}
+
+.hotel:hover {
+    transform: scale(1.1); /* Zoom in on hover */
+}
+
+
+.hotel h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+}
+
+.hotel-info {
+    background-color: none; /* Use rgba for background color with transparency */
+    margin-bottom: 10px;
+    display: block;
+}
+
+.hotel-info p {
+    margin: 5px 0;
+}
+
+.rating {
+    font-weight: bold;
+    color: #FFD700; /* gold color for rating */
+}
+
+.likes {
+    font-weight: bold;
+    color: #ff1493; /* pink color for likes */
+}
+
+.description {
+    font-style: italic;
+}
+
+.book-now {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #4CAF50; /* green color for book now button */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.book-now:hover {
+    background-color: #45a049; /* darker green color on hover */
+}
+
+.testimonials {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.testimonial-container {
+    display: inline-block;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: 10px;
+    margin-right: 10px;
+    align-items: center;
+}
+
+.testimonial-item {
+    width: 400px;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background-color: rgba(249, 249, 249, 0.8); /* Use rgba for background color with transparency */
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+.testimonials h2 {
+    font-size: 3rem;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: white;
+    font-family:'Inter', 'sans-serif';
+    font-weight: bold;
+}
+
+.testimonial-item span {
+    font-style: italic;
+    font-size: 14px;
+    color: #888;
+}
+
+.testimonial-item p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.swiper-pagination {
+    position: relative;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 5px;
+    cursor: pointer;
+}
+.swiper-pagination-bullet-active {
+    background-color: #333;
+}
+.container-net-banking-input select{
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+    background-color: transparent;
+    border-radius: 5px;
+    padding: 10px;
+    color: #333;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+/* Styles for the currency dropdown */
+        /* Add your custom CSS styles here */
+        .profile-info {
+            margin-bottom: 15px;
+        }
+        .profile-info label {
+            font-weight: bold;
+        }
+        .profile-info p{
+            margin-bottom: 10px;
+            font-family: calibri;
+            font-size: 1.4rem;
+            text-transform:none;
+            font-weight: normal;
+        }
+        .profile-info input,
+        .profile-info textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        .profile-info button {
+            margin-top: 5px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            outline: none;
+        }
+        .edit-button:hover,
+        .save-button:hover {
+            background-color: #f0f0f0;
+            border-radius: 50%;
+        }
+        .save-button {
+            color: green;
+        }
+        .search {
+            text-align: center;
+            background-color: rgba(249, 249, 249, 0.8); /* Use rgba for background color with transparency */
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+        }
+        
+        .search-bar {
+            background-color: transparent;
+        }
+        .search-bar input {
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .search-content {
+            display: flex;
+            flex-direction: row; /* Change this from column to row */
+            margin-left: 70px;
+            margin-right: 70px; /* Add px unit */
+        }
+
+        .search-content button{
+            display: inline-block;
+            background-color: #ff6600;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 51px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        label {
+            margin-bottom: 10px;
+        }
+        
+        @media only screen and (min-width: 768px) {
+            .search-content {
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+            }
+        
+            label {
+                margin: 0 10px;
+            }
+        }
+        .booking-details {
+            margin: 20px;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: rgba(249, 249, 249, 0.8); /* Use rgba for background color with transparency  */
+        }
+        .booking-details h2 {
+            margin-bottom: 20px;
+            text-align: center;
+            color:black;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .booking-item {
+            margin-bottom: 20px;
+            width: 450px;
+            padding: 10px;
+            border: black;
+            display:inline-block;
+            margin-right: 20px;
+            padding: 30px;
+            border-radius: 5px;
+            background-color: rgba(249, 249, 249, 0.8); /* Use rgba for background color with transparency */
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+
+        }
+        .booking-item:hover {
+            transform: scale(1.1); /* Zoom in effect */
+            transition: transform 0.3s ease; /* Smooth transition */
+        }
+        
+        .booking-item {
+            transition: transform 0.3s ease; /* Smooth transition for zooming out */
+        }
+        
+        .booking-item:not(:hover) {
+            transform: scale(1); /* Zoom out effect when not hovering */
+        }        
+     .booking-info {
+                margin-bottom: 20px;
+      }
+        
+        .booking-info p {
+            margin: 5px 0;
+            color: black;
+        }
+        
+        .booking-info p strong {
+            margin-right: 5px;
+            font-weight: bold;
+            color:black;
+        }
+        
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white; /* semi-transparent white background */
+            z-index: 9999; /* ensure it's on top of other content */
+            display: none; /* initially hidden */
+        }
+        
+        .spinner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 4px solid #f3f3f3; /* Light grey */
+            border-top: 4px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .content {
+            /* Styles for your main content */
+            margin: 50px auto;
+            text-align: center;
+        }
+        
+        .filter-sort-container{
+            display: inline-block;
+            align-items: center;
+            margin-bottom: 20px;
+            background-color: rgba(249, 249, 249, 0.8); /* Use rgba for background color with transparency */
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+            margin-left: 50px;
+            padding: 10px;
+            border-radius: 5px;
+            max-width: 550px;
+        }
+        .sort-container label{
+            font-size: large;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .sort-container select{
+            margin-left: 30px;
+            background-color: transparent;
+            border-color: black;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 15px;
+            margin-left: 20px;
+            margin-top: 10px;
+            font-size: large;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .filter-sort-container button{
+            display: inline-block;
+            background-color: #ff6600;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: -69px;
+            margin-top:50px;
+            margin-left: -50px;
+            margin-right: 10px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .currency-container label{
+            display: inline-block;
+            align-items: center;
+            margin-bottom: 20px; /* Use rgba for background color with transparency */
+            margin-left: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            max-width: 550px;
+            font-size: large;
+            margin-bottom: 10px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .currency-container select{
+            display: inline-block;
+            color:black;
+            padding: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            border-color: #000;
+            font-weight: normal;
+            width: 100px;
+            background-color: transparent;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .filter-container{
+            display: flex;
+            align-items: center;
+            margin-left: 10px;
+            margin-bottom: 5px;
+        }
+        .sort-container{
+            display: flex;
+            align-items: center;
+            margin-left: 10px;
+        }
+        .filter-container option{
+            color: black;
+
+        }
+
+        .container-payment-details{
+            display: block;
+            flex-direction: column;
+            border-radius: 10px;
+            align-items: center;
+            margin-top: 20px;
+            padding: 20px;
+            margin-left: 40px;
+            margin-bottom: 20px;
+            margin-right: 700px;
+            max-width: 900px;
+            background-color: rgba(249, 249, 249, 0.8); /* Use rgba for background color with transparency */
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+        }
+        .container-payment-options{
+            display: inline-block;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 200px;
+            padding: 200px;
+            margin-left: 250px;
+            margin-bottom: 20px;
+            max-width: 500px;
+            margin-top: 40px;
+            border-radius: 5px;
+            background-color: rgba(249, 249, 249, 0.8); /* Use rgba for background color with transparency */
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+        }
+        .container-payment-options {
+            position: relative;
+            top: 0;
+            padding:20px;
+            top: -300px;
+            left: -210px;
+            border-radius: 10px;
+          }
+          .btn-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: transparent;
+        }
+        
+        .btn-group .mb-2 {
+            margin-bottom: 10px; /* Adjust this value as needed for spacing between buttons */
+        }
+        
+        .container-payment-details h3{
+            margin-bottom: 30px;
+            text-align: center;
+            color: black;
+            font-weight: bold;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .row{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        .row h5{
+            margin-bottom: 20px;
+            text-align: auto;
+            color: black;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .container-payment-options h3{
+            margin-bottom: 25px;
+            text-align: center;
+            color: black;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        
+        .btn-group button{
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            color:black;
+            width: 200px;
+            text-align: center;
+            background-color: transparent;
+            justify-content: space-between;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .btn-group button:hover{
+            color:black;
+            background-color:lightblue;
+        }
+
+        .container-card-input{
+            display: block;
+            flex-direction: column;
+            border-radius: 10px;
+            align-items: center;
+            margin-top: -595px;
+            padding: 25px;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            margin-left: 450px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            max-width: 900px;
+            background-color: rgba(249, 249, 249, 0.8); /* Use rgba for background color with transparency */
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+        }
+          .container-card-input h3{
+            margin-bottom: 80px;
+            text-align: center;
+            color: black;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+          }
+        .amount-container {
+            margin-left: auto;
+            width: 500px; /* Adjust width as needed */
+            /*move upwards*/
+            position: relative;
+            top: -300px;
+            left: -100px;
+            background-color: rgba(249, 249, 249, 0.8); /* Use rgba for background color with transparency */
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+            max-width:700px;
+            border-radius: 10px;
+          }
+          .amount-container h3{
+            margin-bottom: 30px;
+            text-align: center;;
+            color: black;
+            font-weight: bold;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+          }
+          .amount-container p{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin-left: 40px;
+            margin-bottom: 10px;
+            padding: 5px;
+            font-size: x-large;
+          }
+          .amount-container span{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin-left: 200px;
+            margin-bottom: auto;
+            font-size: x-large;
+            text-align:center;
+          }
+          #paymentpay{
+            margin-top: -25px;
+            margin-left: 265px;
+            float:right;
+            text-align: center;
+            color:black;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+          }
+          #paymentAmount{
+            margin-top: 20px;
+            margin-left: 216px;
+            text-align: center;
+            color:black;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+          }
+          #paymentTaxes{
+            margin-top: 20px;
+            margin-left: 222px;
+            text-align: center;
+            color:black;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+          }
+           #paymentDiscount{
+                margin-top: 20px;
+                margin-left: 250px;
+                text-align: center;
+                color:black;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }
+          .amount-container h4{
+            margin-top: 20px;
+            margin-left: 20px;
+            color:black;
+            cursor: pointer;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+          }
+
+          .container-upi-input{
+            display: block;
+            flex-direction: column;
+            border-radius: 10px;
+            align-items: center;
+            margin-top: -595px;
+            padding: 25px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            margin-left: 450px;
+            max-width: 900px;
+            background-color: rgba(249, 249, 249, 0.8); /* Use rgba for background color with transparency */
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+          }
+          .container-upi-input h3{
+            margin-bottom: 30px;
+            text-align: center;
+            color: black;
+      
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+          }
+          .container-net-banking-input{
+            display: block;
+            flex-direction: column;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            border-radius: 10px;
+            align-items: center;
+            margin-top: -595px;
+            padding: 25px;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            margin-left: 450px;
+            max-width: 900px;
+            background-color: rgba(249, 249, 249, 0.8); /* Use rgba for background color with transparency */
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+          }
+          .container-net-banking-input h3{
+            margin-bottom: 30px;
+            text-align: center;
+            color: black;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+          }
+          .container-net-banking-input button{
+            margin-top: 20px;
+            margin-left: 10px;
+          }
+          .container-net-banking-input label{
+            font-size: large;
+            text-align: left;
+            margin-bottom: 3px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+          }
+          .image-container-card{
+            display: block;
+            align-items: center;
+            margin-top: -110px;
+            margin-bottom: 70px;
+          }
+          .image-container {
+            display: block;
+            align-items: center;
+            margin-top: -70px;
+            margin-bottom: 20px;
+        }
+        
+        .image-container img {
+            margin-right: 10px;
+            top: -300px; /* Adjust spacing between images */
+        }
+        
+          .container-card-input button{
+            margin-top: 20px;
+            margin-left: 20px;
+          }
+
+/* Additional CSS for hover message */
+#paymentSuccessMessage {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 255, 0, 0.5);
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #fff;
+    z-index: 9999;
+}
+
+/* Style for payment details container */
+#paymentDetailsContainer {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+/* Style for individual payment detail */
+.paymentDetail {
+    margin-bottom: 10px;
+}
+
+/* Style for labels */
+.paymentDetail span {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Style for amount label */
+.paymentDetail .amountLabel {
+    color: green; /* Example color for amount label */
+}
+.container-lab{
+    text-align: center;
+    margin-top: 20px;
+    background-color: rgba(249, 249, 249, 0.8); /* Use rgba for background color with transparency */
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+    margin-left: 300px;
+    margin-right: 300px;
+}
+.container-lab h1{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-bottom: 5px;
+    color:black;
+}
+.container-lab h3{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-bottom: 5px;
+    color:black;
+}
+#Paymentsuccess{
+    margin-top: -105px;
+    margin-bottom: 20px;
+    font-size:2rem;
+    margin-left: 75px;
+    padding: 20px;
+    display: flex;
+    border-radius: 5px;
+    color: green;
+}
+/* Style for the label */
+.search-content span{
+    margin-top: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: large;
+    margin-bottom: 8px;
+    display: flex;
+    margin-top: -50px;
+}
+
+/* Style for the Currency button */
+#change-currency-btn {
+    padding: 0.1px 16px;
+    font-size: 15px;
+    float: right;
+    width: 100px;
+    background-color:#ff6600;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-right: 30px;
+    margin-left: -50px;
+}
+
+/* Style for the Apply button */
+#apply-currency-btn {
+    padding: 8px 16px;
+    margin-top:2px;
+    font-size: 16px;
+    background-color:orangered;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+/* Style for the select element */
+
+.booking-details-text{
+    background-color: lightgray;
+    border-radius: 5px;
+   width: 80%;
+  margin-left: 90px;
+  margin-top: 20px;
+  margin-bottom: 25px;
+}
+.booking-details-text h3{
+    margin-bottom: 15px;
+    text-align: left;
+    margin-top: 5px;
+    margin-left: 5px;
+    font-size: x-large;
+    font-weight: bold;
+    color: #000;
+}
+.table-strip p{
+    text-align: left;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size:medium;
+}
+.table-strip span{
+ float:right
+}
+
+.container-payment-details-text{
+    display: block;
+    flex-direction: column;
+    border-radius: 10px;
+    text-align: left;
+    margin-top: 20px;
+    padding: 25px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    margin-left: 90px;
+    width:80%;
+    background-color: rgba(249, 249, 249, 0.8); /* Use rgba for background color with transparency */
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+}
+.container-payment-details-text h3{
+    margin-bottom: 15px;
+    text-align: left;
+    font-weight: bold;
+    margin-left: 5px;
+    font-size: x-large;
+    color: black;
+}
+
+.table-strip-details p{
+    text-align: left;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size:medium;
+}
+.table-strip-details span{
+ float:right
+}
+
+.container-lab img{
+    margin-top: 50px;
+    margin-bottom: 20px;
+    margin-left: -350px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.container-contact{
+    display: block;
+    flex-direction: column;
+    border-radius: 10px;
+    align-items: center;
+    margin-top: 70px;
+    padding: 25px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    margin-left: 90px;
+    width: 640px;
+    background-color: rgba(249, 249, 249, 0.8); /* Use rgba for background color with transparency */
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+
+}
+.container-contact h2{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+/* Styles for Contact Information */
+.container-contact h5 {
+    margin-bottom: 27px;
+    margin-top: 50px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
+   
+  }
+  .container-contact p{
+    width: 100%;
+    max-width: 600px;
+    line-height: 1.5;
+    margin-bottom:20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  .container-message{
+    display: block;
+    flex-direction: column;
+    border-radius: 10px;
+    align-items: center;
+    margin-top: -550px;
+    margin-bottom: 100px;
+    padding: 25px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    margin-left: 800px;
+    width: 650px;
+    background-color: rgba(249, 249, 249, 0.8); /* Use rgba for background color with transparency */
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+  }
+  .container-message h2 {
+    font-size: 30px;
+    color: #333;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+.container-message button{
+    margin-top: 30px;
+    width:100px;
+    height: 50px;
+}
+  .container-map{
+    width:80%;
+    margin-left: 170px;
+    margin-bottom: 90px;
+  }
+  .container-map iframe{
+    border-radius: 10px;
+  }
+  .container-message label {
+    font-size: 16px;
+    color:black;
+    margin-bottom: 10px;
+    text-align:left;
+    margin-left: -21px;
+
+  }
+  .container-message input[type="text"], .container-message select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    margin-left: -21px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  .container-message p {
+    font-size: 16px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+  }
+
+  .container-contact img{
+        margin-left: 10px;
+        margin-bottom: 5px;
+        height: 30px;
+        width: auto;
+        display: inline-block;
+        background: #f6f9ff;
+        border-radius: 10px;
+        padding: 5px;
+    }
+    .container-contact img:hover{
+        background: #016cec;
+    }

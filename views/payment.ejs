@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BookingCo - payment</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+rel="stylesheet"
+integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+crossorigin="anonymous"/>
+<link href="https://cdn.staticaly.com/gh/hung1001/font-awesome-pro/8af0edd/css/all.css"
+rel="stylesheet"/>
+<link rel="stylesheet" href="/Styles/style.css">
+<link rel="icon" type="image/x-icon" href="/Images/logo.webp">
+</head>
+<body>
+<div class="preloader">
+    <div class="spinner"></div>
+</div>
+<header class="d-flex flex-wrap justify-content-center py-3">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4 fw-bold">BookingCo</span>
+    </a>
+    <nav>   
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <% if (locals.user) { %>
+                <!-- Display user's name -->
+                <li><a href=""><%=user%></a></li>
+            <% } else { %>
+                <li><a href="/user">Login</a> / <a href="/createaccount">Sign Up</a></li>
+            <% } %>
+        </ul>
+    </nav>
+</header>
+
+<!-- Payment details section -->
+<div class="container-payment-details">
+    <h3>Booking Details</h3>
+    <div class="row">
+        <div class="col-md-6">
+            <h5 id="payment-name">Name:  <span><%= name %></span></h5>
+            <h5 id="payment-email">Email:  <span><%= email %></span></h5>
+            <h5 id="payment-phone">Phone:  <span><%= phone %></span></h5>
+        </div>
+        <div class="col-md-6">
+            <h5 id="payment-hotel">Hotel Name:  <span><%= hotel %></span></h5>
+            <h5 id="payment-checkin">Check-in Date:  <span><%= check_in %></span></h5>
+            <h5 id="payment-checkout">Check-out Date:  <span><%= check_out %></span></h5>
+        </div>
+        <div class="col-md-6">
+            <h5 id="payment-rooms">Number of Rooms: <span><%= rooms %></span></h5>
+        </div>
+    </div>
+</div>
+<!-- Add amount details to the right side of the page -->
+<div class="amount-container">
+    <h3>Amount Details</h3>
+    <div>
+        <% if (locals.USD) { %>
+        <% let p = (parseFloat(price) + 5).toFixed(2) %>
+        <p>Total Amount:<span id="paymentAmount">$<%= price %></span></p>
+        <p>Taxes & Fees:<span id="paymentTaxes">$10</span></p>
+        <p>Discount:<span id="paymentDiscount">-$5</span></p>
+        <hr>
+        <h4>Total Pay:<span id="paymentpay">$<%= p %></span></h4>
+        <% } else if (locals.india) { %>
+        <% let p = (parseFloat(price) + 414).toFixed(2) %>
+        <p>Total Amount:<span id="paymentAmount">₹<%= price %></span></p>
+        <p>Taxes & Fees:<span id="paymentTaxes">₹828</span></p>
+        <p>Discount:<span id="paymentDiscount">-₹414</span></p>
+        <hr>
+        <h4>Total Pay:<span id="paymentpay">₹<%= p %></span></h4>
+        <% } else if (locals.EUR) { %>
+        <% let p = (parseFloat(price) + 5).toFixed(2) %>
+        <p>Total Amount:<span id="paymentAmount">€<%= price %></span></p>
+        <p>Taxes & Fees:<span id="paymentTaxes">€9</span></p>
+        <p>Discount:<span id="paymentDiscount">-€4</span></p>
+        <hr>
+        <h4>Total Pay:<span id="paymentpay">€<%= p %></span></h4>
+        <% } else if (locals.AED) { %>
+        <% let p = (parseFloat(price) + 19).toFixed(2) %>
+        <p>Total Amount:<span id="paymentAmount">(د.إ)<%= price %></span></p>
+        <p>Taxes & Fees:<span id="paymentTaxes">(د.إ)37</span></p>
+        <p>Discount:<span id="paymentDiscount">-(د.إ)18</span></p>
+        <hr>
+        <h4>Total Pay:<span id="paymentpay">(د.إ)<%= p %></span></h4>
+          <% } else if (locals.GBP) { %>
+        <% let p = (parseFloat(price) + 3).toFixed(2) %>
+        <p>Total Amount:<span id="paymentAmount">£<%= price %></span></p>
+        <p>Taxes & Fees:<span id="paymentTaxes">£7</span></p>
+        <p>Discount:<span id="paymentDiscount">-£4</span></p>
+        <hr>
+        <h4>Total Pay:<span id="paymentpay">£<%= p %></span></h4>
+          <% } else if (locals.CNY) { %>
+        <% let p = (parseFloat(price) + 33).toFixed(2) %>
+        <p>Total Amount:<span id="paymentAmount">¥<%= price %></span></p>
+        <p>Taxes & Fees:<span id="paymentTaxes">¥65</span></p>
+        <p>Discount:<span id="paymentDiscount">-¥32</span></p>
+        <hr>
+        <h4>Total Pay:<span id="paymentpay">¥<%= p %></span></h4>
+          <% } %>
+    </div>
+</div>
+<!-- Payment options section -->
+<div class="container-payment-options">
+    <h3>Select Payment Method</h3>
+
+    <div class="btn-group">
+        <div class="mb-2">
+            <button type="button" class="btn btn-primary" onclick="togglePaymentOption('card')">Debit/Credit Card</button>
+        </div>
+        <div class="mb-2">
+            <button type="button" class="btn btn-primary" onclick="togglePaymentOption('upi')">UPI</button>
+        </div>
+        <div class="mb-2">
+            <button type="button" class="btn btn-primary" onclick="togglePaymentOption('net-banking')">Net Banking</button>
+        </div>
+    </div>
+</div>
+
+<div class="container-card-input" id="card-input" style="display:none;">
+    <h3>Debit/Credit card</h3>
+    <div class="image-container-card">
+        <img src="/Images/rupay.jpg" alt="Image 1" style="width:70px; height: 40px; margin-right: 10px;">
+        <img src="/Images/visa.jpg" alt="Image 2" style="width:70px; height: 40px; margin-right: 10px;">
+        <img src="/Images/mastercard.jpg" alt="Image 3" style="width:70px; height: 40px;">
+    </div>
+    <form action="/paymentsuccessful" method="post" id="cardPaymentForm">
+<!-- Card input fields -->
+<div class="row gx-4 gy-4">
+    <div class="col-md-6">
+        <input type="text" class="form-control" placeholder="Card Number (e.g., 1234 5678 9012 3456)" required>
+    </div>
+    <div class="col-md-6">
+        <input type="text" class="form-control" placeholder="Card Holder Name (as it appears on the card)" required>
+    </div>
+    <div class="col-md-6">
+        <input type="text" class="form-control" placeholder="Expiry Date (MM/YY)" required>
+    </div>
+    <div class="col-md-6">
+        <input type="text" class="form-control" placeholder="CVV (3-digit security code)" required>
+    </div>
+</div>
+    <button name="type" value="Debit/Credit Card" type="submit" class="btn btn-warning">Pay Amount</button>
+</form>
+</div>
+<!-- UPI input section -->
+<div class="container-upi-input" id="upi-input" style="display: none;">
+    <h3>UPI</h3>
+<div class="image-container">
+    <img src="/Images/gpay.jpg" alt="Image 1" style="width:70px; height: 40px; margin-right: 10px;">
+    <img src="/Images/phonepe.jpg" alt="Image 2" style="width:70px; height: 40px; margin-right: 10px;">
+    <img src="/Images/paytm.jpg" alt="Image 3" style="width:70px; height: 40px;">
+</div>
+
+<form action="/paymentsuccessful" method="post" id="paymentForm">
+    <!-- UPI input fields -->
+    <label for="vpa">Enter your UPI ID</label>
+    <input type="text" name="" class="form-control" id="vpa" placeholder="Enter your UPI ID" required>
+    <small id="emailHelp" class="form-text text-muted">We'll never share your UPI ID with anyone else.</small>
+    <small class="form-text text-muted">Make sure you have an active UPI ID to proceed with the payment.</small>
+    <small class="form-text text-muted">You will be redirected to your UPI app to complete the payment.</small>
+    <small class="form-text text-muted">UPI ID should be in the format of yourname@bankname.</small>
+    <br><br>
+    <label for="amount">Amount</label>
+        <% if (locals.USD) { %>
+        <% let p = (parseFloat(price) + 5).toFixed(2) %>
+        <input type="text" class="form-control" id="amount" value="<%= p %>" readonly>
+        <% } else if (locals.india) { %>
+        <% let p = (parseFloat(price) + 414).toFixed(2) %>
+        <input type="text" class="form-control" id="amount" value="<%= p %>" readonly>
+        <% } else if (locals.EUR) { %>
+        <% let p = (parseFloat(price) + 5).toFixed(2) %>
+        <input type="text" class="form-control" id="amount" value="<%= p %>" readonly>
+        <% } else if (locals.AED) { %>
+        <% let p = (parseFloat(price) + 19).toFixed(2) %>
+        <input type="text" class="form-control" id="amount" value="<%= p %>" readonly>
+        <% } else if (locals.GBP) { %>
+        <% let p = (parseFloat(price) + 3).toFixed(2) %>
+        <input type="text" class="form-control" id="amount" value="<%= p %>" readonly>
+        <% } else if (locals.CNY) { %>
+        <% let p = (parseFloat(price) + 33).toFixed(2) %>
+        <input type="text" class="form-control" id="amount" value="<%= p %>" readonly>
+        <% } %>
+    <br>
+    <button name="type" value="UPI" type="submit" class="btn btn-warning">Pay Amount</button>
+</form>
+</div>
+
+<!-- Net banking input section -->
+<div class="container-net-banking-input" id="net-banking-input" style="display: none;">
+    <h3>Net Banking</h3>
+    <form action="/paymentsuccessful" method="post" id="netBankingForm">
+        <!-- Net banking input fields -->
+        <label for="bank">Select your bank</label>
+        <select class="custom-select" id="bank" required>
+        <option selected disabled>Choose the bank.....</option>
+        <option value="1">State Bank of India</option>
+        <option value="2">HDFC Bank</option>
+        <option value="3">ICICI Bank</option>
+        <option value="4">Axis Bank</option>
+        <option value="5">Bank of Baroda</option>
+        <option value="6">Punjab National Bank</option>
+        <option value="7">Canara Bank</option>
+        <option value="8">Union Bank of India</option>
+        <option value="9">Bank of India</option>
+        <option value="10">Central Bank of India</option>
+        <option value="11">Indian Bank</option>
+    </select>
+            <!-- Add more banks as needed -->
+        </select>
+        <br><br>
+        <label for="username">Enter your username</label>
+        <input type="text" class="form-control" id="username" placeholder="Enter your username" required>
+        <br>
+        <label for="password">Enter your password</label>
+        <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+        <br>
+        <label for="otp">Enter the OTP</label>
+        <input type="text" class="form-control" id="otp" placeholder="Enter the OTP" required>
+        <br>
+        <button name="type" value="Net Banking" type="submit" class="btn btn-warning">Pay Amount</button>
+    </form>
+</div>
+<footer>
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4 fw-bold">BookingCo</span></a>
+    <div class="contact-info">
+        <p><i class="fas fa-phone-alt"></i> Phone: </p>
+        <p><i class="fas fa-envelope"></i> Email: info@example.com</p>
+    </div>
+    <div class="social-links">
+        <a href="#"><img src="https://www.edigitalagency.com.au/wp-content/uploads/Facebook-logo-blue-circle-large-white-f.png" alt="Facebook"></a>
+        <a href="#"><img src="https://about.twitter.com/content/dam/about-twitter/x/brand-toolkit/logo-black.png.twimg.1920.png" alt="Twitter"></a>
+        <a href="#"><img src="https://www.edigitalagency.com.au/wp-content/uploads/new-Instagram-logo-png-full-colour-glyph-medium-size-450-pixels.png" alt="Instagram"></a>
+    </div>
+    <div class="additional-links">
+
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">FAQs</a>
+    </div>
+</footer>
+<!-- Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Custom JS -->
+<script>
+function togglePaymentOption(option) {
+    // Hide all payment option sections
+    $(".container-card-input, .container-upi-input, .container-net-banking-input").hide();
+    
+    
+    // Show the selected payment option section
+    $("#" + option + "-input").show();
+}
+
+function payAmount() {
+    // Validate form
+    if ($("#vpa").val() === "" || $("#amount").val() === "") {
+        alert("Please fill all required fields.");
+        return;
+    }
+    
+    // Perform payment process here
+    
+    // Show payment success modal
+    $("#paymentSuccessModal").modal('show');
+}
+
+function payNetBanking() {
+    // Validate form
+    if ($("#bank").val() === "" || $("#username").val() === "" || $("#password").val() === "" || $("#otp").val() === "") {
+        alert("Please fill all required fields.");
+        return;
+    }
+    
+    // Perform payment process here
+    
+    // Show payment success modal
+    $("#paymentSuccessModal").modal('show');
+}
+
+function payCardAmount() {
+    // Validate form
+    if ($("#cardPaymentForm input").filter(function () { return $(this).val() == ""; }).length > 0) {
+        alert("Please fill all required fields.");
+        return;
+    }
+    
+    // Perform payment process here
+    
+    // Show payment success modal
+    $("#paymentSuccessModal").modal('show');
+}
+</script>
+
+</body>
+</html>

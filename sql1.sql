@@ -1,0 +1,1 @@
+SELECT * FROM hotels WHERE location LIKE %USA%

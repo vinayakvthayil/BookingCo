@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BookingCo - Hotel</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+rel="stylesheet"
+integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+crossorigin="anonymous"/>
+<link href="https://cdn.staticaly.com/gh/hung1001/font-awesome-pro/8af0edd/css/all.css"
+rel="stylesheet"/>
+<link rel="stylesheet" href="/Styles/style.css">
+<link rel="icon" type="image/x-icon" href="/Images/logo.webp">
+</head>
+<body>
+  <div class="preloader">
+    <div class="spinner"></div>
+</div>
+<header class="d-flex flex-wrap justify-content-center py-3" id="main-header">
+<a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+<span class="fs-4 fw-bold">BookingCo</span></a>
+<nav>   
+    <ul>
+        <li><a href="/home">Home</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+<section class="container p-4">
+<!--Add filtering opting and sorting option-->
+        <form action="/filter" method="post">
+        <div class="filter-sort-container">
+          <div class="sort-container">
+            <label for="sort">Sort by:</label>
+            <select name="filter" id="sort">
+              <option value="priceLowToHigh">Price Low to High</option>
+              <option value="priceHighToLow">Price High to Low</option>
+            </select>
+            <button type="submit" class="btn btn-primary">Apply</button>
+          </div>
+          <div class="currency-container">
+          <label for="sort">Currency:</label>
+          <% if (locals.USD) { %>
+            <select name="currency" id="currency">
+              <option value="USD" selected>USD ($)</option>
+              <option value="INR">INR (₹)</option>
+              <option value="EUR">EUR (€)</option>
+              <option value="AED">AED (د.إ)</option>
+              <option value="GBP">GBP (£)</option>
+              <option value="CNY">CNY (¥)</option>
+              <!-- Add more currencies as needed -->
+          </select>
+            <% } else if (locals.india) { %>
+              <select name="currency" id="currency">
+                <option value="USD">USD ($)</option>
+                <option value="INR"selected>INR (₹)</option>
+                <option value="EUR">EUR (€)</option>
+                <option value="AED">AED (د.إ)</option>
+                <option value="GBP">GBP (£)</option>
+                <option value="CNY">CNY (¥)</option>
+                <!-- Add more currencies as needed -->
+            </select>
+            <% } else if (locals.EUR) { %>
+              <select name="currency" id="currency">
+                <option value="USD">USD ($)</option>
+                <option value="INR">INR (₹)</option>
+                <option value="EUR" selected>EUR (€)</option>
+                <option value="AED">AED (د.إ)</option>
+                <option value="GBP">GBP (£)</option>
+                <option value="CNY">CNY (¥)</option>
+                <!-- Add more currencies as needed -->
+            </select>
+            <% } else if (locals.AED) { %>
+              <select name="currency" id="currency">
+                <option value="USD">USD ($)</option>
+                <option value="INR">INR (₹)</option>
+                <option value="EUR">EUR (€)</option>
+                <option value="AED" selected>AED (د.إ)</option>
+                <option value="GBP">GBP (£)</option>
+                <option value="CNY">CNY (¥)</option>
+                <!-- Add more currencies as needed -->
+            </select>
+            <% } else if (locals.GBP) { %>
+              <select name="currency" id="currency">
+                <option value="USD">USD ($)</option>
+                <option value="INR">INR (₹)</option>
+                <option value="EUR">EUR (€)</option>
+                <option value="AED">AED (د.إ)</option>
+                <option value="GBP" selected>GBP (£)</option>
+                <option value="CNY">CNY (¥)</option>
+                <!-- Add more currencies as needed -->
+            </select>
+            <% } else if (locals.CNY) { %>
+              <select name="currency" id="currency">
+                <option value="USD">USD ($)</option>
+                <option value="INR">INR (₹)</option>
+                <option value="EUR">EUR (€)</option>
+                <option value="AED">AED (د.إ)</option>
+                <option value="GBP">GBP (£)</option>
+                <option value="CNY" selected>CNY (¥)</option>
+                <!-- Add more currencies as needed -->
+            </select>
+            <% } %>
+      </form>
+        </div>
+      </div>
+          <!-- Add more hotels here with appropriate classes for filtering -->
+        <div class="hotel-container">
+          <!-- Hotel 1 -->
+          <% hotels.forEach(function(hotel) { %>
+          <div class="hotel ms-5">
+            <form action="/booking" method="post">
+            <h2><%= hotel.hotelname %></h2>
+            <input type="hidden" name="hotelname" value="<%= hotel.hotelname %>">
+            <div class="hotel-info">
+                <p><%= hotel.location %></p>
+                <input type="hidden" name="location" value="<%= hotel.location %>">
+                <p>Rating: <span class="rating"><%= hotel.rating %></span></p>
+                <p>Likes: <span class="likes" id="likes" onclick="incrementLikes('likes')">❤️ <%= hotel.likes %></span></p>
+                <p class="description"><%= hotel.description %></p>
+                <% if (locals.USD) { %>
+                <p>Price per night: ($) <%= hotel.pricepernight %></p>
+                <input type="hidden" name="price" value="<%= hotel.pricepernight %>">
+                <% } else if (locals.india) { 
+                  var price = hotel.pricepernight*82.91;
+                %>
+                  <p>Price per night: (₹) <%= price %></p>
+                  <input type="hidden" name="price" value="<%= price %>">
+                <% } else if (locals.EUR) { 
+                  var price = hotel.pricepernight*0.85;  
+                %>
+                  <p>Price per night: (€) <%= price %></p>
+                  <input type="hidden" name="price" value="<%= price %>">
+                <% } else if (locals.AED) { 
+                  var price = hotel.pricepernight*3.67;  
+                %>
+                  <p>Price per night: (د.إ) <%= price %></p>
+                  <input type="hidden" name="price" value="<%= price %>">
+                <% } else if (locals.GBP) { 
+                  var price = hotel.pricepernight*0.72;  
+                %>
+                  <p>Price per night: (£) <%= price %></p>
+                  <input type="hidden" name="price" value="<%= price %>">
+                <% } else if (locals.CNY) { 
+                  var price = hotel.pricepernight*6.46;  
+                %>
+                  <p>Price per night: (¥) <%= price %></p>
+                  <input type="hidden" name="price" value="<%= price %>">
+                <% } else { %>
+                  <p>Price per night: ($) <%= hotel.pricepernight %></p>
+                <% } %>
+                <img src="taj_mahal_palace.jpg" alt="Taj Mahal Palace">
+                <button type="submit" class="book-now" >Book Now</button>
+            </div>
+            </form>
+        </div>
+        <% }); %>
+
+    <!-- Repeat the same structure for other hotels -->
+</div>
+</section>
+      <!-- Currency Selection Dropdown -->      
+      <script>
+          // Function to update prices based on selected currency
+          function updatePrices(currency) {
+              const priceElements = document.querySelectorAll('.hotel-info .price'); // Selecting price elements
+              priceElements.forEach(element => {
+                  const originalPrice = parseFloat(element.getAttribute('data-original-price'));
+                  let convertedPrice;
+      
+                  // Convert price based on selected currency
+                  switch(currency) {
+                      case 'USD':
+                          convertedPrice = originalPrice;
+                          element.textContent = `Price per night: $${convertedPrice.toFixed(2)}`;
+                          break;
+                      case 'INR':
+                          convertedPrice = originalPrice * 82.9115; // 1 USD = 74.85 INR
+                          element.textContent = `Price per night: ₹${convertedPrice.toFixed(2)}`;
+                          break;
+                      case 'EUR':
+                          convertedPrice = originalPrice * 0.85; // 1 USD = 0.85 EUR
+                          element.textContent = `Price per night: €${convertedPrice.toFixed(2)}`;
+                          break;
+                      case 'AED':
+                          convertedPrice = originalPrice * 3.67; // 1 USD = 3.67 AED
+                          element.textContent = `Price per night: د.إ${convertedPrice.toFixed(2)}`;
+                          break;
+                      case 'GBP':
+                          convertedPrice = originalPrice * 0.72; // 1 USD = 0.72 GBP
+                          element.textContent = `Price per night: £${convertedPrice.toFixed(2)}`;
+                          break;
+                      case 'CNY':
+                          convertedPrice = originalPrice * 6.46; // 1 USD = 6.46 CNY
+                          element.textContent = `Price per night: ¥${convertedPrice.toFixed(2)}`;
+                          break;                         
+                      // Add more cases for other currencies
+                  }
+              });
+          }
+      
+          // Event listener for currency selection change
+          document.getElementById('currency').addEventListener('change', function() {
+              const selectedCurrency = this.value;
+              updatePrices(selectedCurrency);
+          });
+      
+          // Initial call to update prices based on default currency selection
+          updatePrices(document.getElementById('currency').value);
+
+          // Get the header element
+const header = document.getElementById('main-header');
+
+// Function to handle scroll event
+function handleScroll() {
+    if (window.scrollY > 0) {
+        // Add the header-scrolled class when scrolling down
+        header.classList.add('header-scrolled');
+    } else {
+        // Remove the header-scrolled class when scrolling up to the top
+        header.classList.remove('header-scrolled');
+    }
+}
+
+// Listen for scroll events
+window.addEventListener('scroll', handleScroll);
+
+
+// Function to handle scroll event
+    </script>
+
+            
+                                                                  
+                      <!-- Repeat the same structure for other hotels, changing the image source, price, and other details as needed -->
+          <script src="/main.js"></script>
+          <footer>
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                <span class="fs-4 fw-bold">BookingCo</span></a>
+            <div class="contact-info">
+                <p><i class="fas fa-phone-alt"></i> Phone: </p>
+                <p><i class="fas fa-envelope"></i> Email: info@example.com</p>
+            </div>
+            <div class="social-links">
+                <a href="#"><img src="https://www.edigitalagency.com.au/wp-content/uploads/Facebook-logo-blue-circle-large-white-f.png" alt="Facebook"></a>
+                <a href="#"><img src="https://about.twitter.com/content/dam/about-twitter/x/brand-toolkit/logo-black.png.twimg.1920.png" alt="Twitter"></a>
+                <a href="#"><img src="https://www.edigitalagency.com.au/wp-content/uploads/new-Instagram-logo-png-full-colour-glyph-medium-size-450-pixels.png" alt="Instagram"></a>
+            </div>
+            <div class="additional-links">
+        
+                <a href="#">Terms of Service</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">FAQs</a>
+            </div>
+        </footer>
+    <script>
+      var mybutton = document.getElementById("back-to-top");
+
+      // When the user scrolls down 20px from the top of the document, show the button
+      window.onscroll = function() {scrollFunction()};
+  
+      function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+              mybutton.style.display = "block";
+          } else {
+              mybutton.style.display = "none";
+          }
+      }
+  
+      // When the user clicks on the button, scroll to the top of the document
+      mybutton.addEventListener('click', backToTop);
+  
+      function backToTop() {
+          document.body.scrollTop = 0; // For Safari
+          document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+      }
+    </script>
+    <script>
+      // Show the preloader
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelector('.preloader').style.display = 'block';
+});
+
+// Hide the preloader when the page has fully loaded
+window.addEventListener("load", function() {
+  document.querySelector('.preloader').style.display = 'none';
+});
+
+    </script>
+      <!-- Repeat for other hotels, make sure to use unique id for each likes element -->
+      <script src="./main.js"></script>
+      </body>
+      </html>

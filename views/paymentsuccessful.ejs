@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BookingCo - payment</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+rel="stylesheet"
+integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+crossorigin="anonymous"/>
+<link href="https://cdn.staticaly.com/gh/hung1001/font-awesome-pro/8af0edd/css/all.css"
+rel="stylesheet"/>
+<link rel="stylesheet" href="/Styles/style.css">
+<link rel="icon" type="image/x-icon" href="/Images/logo.webp">
+</head>
+<body>
+<div class="preloader">
+    <div class="spinner"></div>
+</div>
+<header class="d-flex flex-wrap justify-content-center py-3">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4 fw-bold">BookingCo</span>
+    </a>
+    <nav>   
+        <ul>
+            <li><a href="/home">Home</a></li>
+        </ul>
+    </nav>
+</header>
+<div class="container-lab">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 text-center">
+            <img src="/Images/success.jpeg" alt="success" class="img-fluid"><span id="Paymentsuccess">Payment Successful!</span>
+            <h1>Thank You!</h1>
+            <div class="container-payment-details-sign">
+                <h3>Your Booking has been received</h3>                
+            </div>
+            </div>
+            <div class="booking-details-text">
+                <h3>Booking Details</h3> 
+                <div class="table-strip">
+                    <p><strong>Email:</strong> <span id="emailid"><%= email %></span></p>
+                    <p><strong>Check-in Date:</strong> <span id="checkin-date"><%= check_in %></span></p>
+                    <p><strong>Check-out Date:</strong> <span id="checkout-date"><%= check_out %></span></p>
+                    <p><strong>No of Rooms:</strong> <span id="room-type"><%= rooms %></span></p>
+                    <p><strong>Payment Method:</strong> <span id="payment-method"><%= type %></span></p>
+                    <p><strong>Booking ID:</strong> <span id="booking-id"><%= id %></span></p>
+                    <p><strong>Booking Date:</strong> <span id="booking-date"><%= bd %></span></p>
+                    <hr>
+                    <% if (locals.USD) { %>
+                        <% let p = (parseFloat(price) + 5).toFixed(2) %>
+                        <p><strong>Total Amount:</strong><span>$<%= price %></span></p>
+                        <p><strong>Taxes & Fees: </strong><span>$10</span></p>
+                        <p><strong>Discount: </strong><span>-$5</span></p>
+                        <hr>
+                        <p><strong>Total Pay: </strong><span>$<%= p %></span></p>
+                        <% } else if (locals.india) { %>
+                        <% let p = (parseFloat(price) + 414).toFixed(2) %>
+                        <p><strong>Total Amount:</strong><span id="paymentAmount">₹<%= price %></span></p>
+                        <p><strong>Taxes & Fees: </strong><span id="paymentTaxes">₹828</span></p>
+                        <p><strong>Discount: </strong><span id="paymentDiscount">-₹414</span></p>
+                        <hr>
+                        <p><strong>Total Pay: </strong><span id="paymentpay">₹<%= p %></span></p>
+                        <% } else if (locals.EUR) { %>
+                        <% let p = (parseFloat(price) + 5).toFixed(2) %>
+                        <p><strong>Total Amount:</strong><span id="paymentAmount">€<%= price %></span></p>
+                        <p><strong>Taxes & Fees: </strong><span id="paymentTaxes">€9</span></p>
+                        <p><strong>Discount: </strong><span id="paymentDiscount">-€4</span></p>
+                        <hr>
+                        <p><strong>Total Pay: </strong><span id="paymentpay">€<%= p %></span></p>
+                        <% } else if (locals.AED) { %>
+                        <% let p = (parseFloat(price) + 19).toFixed(2) %>
+                        <p><strong>Total Amount:</strong><span id="paymentAmount">(د.إ)<%= price %></span></p>
+                        <p><strong>Taxes & Fees: </strong><span id="paymentTaxes">(د.إ)37</span></p>
+                        <p><strong>Discount: </strong><span id="paymentDiscount">-(د.إ)18</span></p>
+                        <hr>
+                        <p><strong>Total Pay: </strong><span id="paymentpay">(د.إ)<%= p %></span></p>
+                          <% } else if (locals.GBP) { %>
+                        <% let p = (parseFloat(price) + 3).toFixed(2) %>
+                        <p><strong>Total Amount:</strong><span id="paymentAmount">£<%= price %></span></p>
+                        <p><strong>Taxes & Fees: </strong><span id="paymentTaxes">£7</span></p>
+                        <p><strong>Discount: </strong><span id="paymentDiscount">-£4</span></p>
+                        <hr>
+                        <p><strong>Total Pay: </strong><span id="paymentpay">£<%= p %></span></p>
+                          <% } else if (locals.CNY) { %>
+                        <% let p = (parseFloat(price) + 33).toFixed(2) %>
+                        <p><strong>Total Amount:</strong><span id="paymentAmount">¥<%= price %></span></p>
+                        <p><strong>Taxes & Fees: </strong><span id="paymentTaxes">¥65</span></p>
+                        <p><strong>Discount: </strong><span id="paymentDiscount">-¥32</span></p>
+                        <hr>
+                        <p><strong>Total Pay: </strong><span id="paymentpay">¥<%= p %></span></p>
+                          <% } %>
+                </div>
+            </div>
+                <div class="container-payment-details-text">
+                    <h3>Hotel Details</h3>
+                    <div class="table-strip-details">
+                        <p><strong>Hotel Name:</strong> <span id="hotelName"><%= hotel %></span></p>
+                        <p><strong>Location:</strong> <span id="location"><%= location %></span></p>
+                        <p><strong>Phone:</strong> <span id="phone">1234567890</span></p>
+                        <p><strong>Email:</strong> <span id="email">info@gmail.com</span></p>
+                </div>
+            </div>
+            </div>
+        </div>
+            <footer>
+                <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                    <span class="fs-4 fw-bold">BookingCo</span></a>
+                <div class="contact-info">
+                    <p><i class="fas fa-phone-alt"></i> Phone: </p>
+                    <p><i class="fas fa-envelope"></i> Email: info@example.com</p>
+                </div>
+                <div class="social-links">
+                    <a href="#"><img src="https://www.edigitalagency.com.au/wp-content/uploads/Facebook-logo-blue-circle-large-white-f.png" alt="Facebook"></a>
+                    <a href="#"><img src="https://about.twitter.com/content/dam/about-twitter/x/brand-toolkit/logo-black.png.twimg.1920.png" alt="Twitter"></a>
+                    <a href="#"><img src="https://www.edigitalagency.com.au/wp-content/uploads/new-Instagram-logo-png-full-colour-glyph-medium-size-450-pixels.png" alt="Instagram"></a>
+                </div>
+                <div class="additional-links">
+            
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">FAQs</a>
+                </div>
+            </footer>
+<!-- Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // Extract payment details from localStorage
+        var paymentDetails = JSON.parse(localStorage.getItem('paymentDetails'));
+
+        // Populate payment details on the success page
+        if (paymentDetails) {
+            var paymentDetailsList = document.getElementById('paymentDetails');
+            for (var key in paymentDetails) {
+                var listItem = document.createElement('li');
+                listItem.innerHTML = '<strong>' + key + ':</strong> ' + paymentDetails[key];
+                paymentDetailsList.appendChild(listItem);
+            }
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookingCo - Admin Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"/>
+    <link href="https://cdn.staticaly.com/gh/hung1001/font-awesome-pro/8af0edd/css/all.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" type="image/x-icon" href="/Images/logo.webp">
+</head>
+<body>
+    <div class="header">
+        <div class="header-links">
+            <a href="./adminlogin.html">Login</a>
+        </div>
+    </div>
+    <div class="sidebar" id="sidebar">
+        <h1><a href="./Admin.html" class="sidebar-brand">BookingCo</a></h1>
+        <a href="./Admin.html" class="sidebar-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+        
+        <div class="dropdown">
+            <a class="sidebar-link dropdown-toggle" href="#" role="button" id="userDropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-users"></i> Users
+            </a>
+            <div class="dropdown-menu" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="./users.html">All Users</a>
+            </div>
+        </div>
+        
+        <div class="dropdown">
+            <a class="sidebar-link dropdown-toggle" href="#" role="button" id="hotelDropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-hotel"></i> Hotels
+            </a>
+            <div class="dropdown-menu" aria-labelledby="hotelDropdown">
+                <a class="dropdown-item" href="./allhotels.html">All Hotels</a>
+                <a class="dropdown-item" href="./addhotel.html">Add New Hotel</a>
+            </div>
+        </div>
+        
+        <div class="dropdown">
+            <a class="sidebar-link dropdown-toggle" href="#" role="button" id="bookingDropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-calendar-check"></i> View Bookings
+            </a>
+            <div class="dropdown-menu" aria-labelledby="bookingDropdown">
+                <a class="dropdown-item" href="./allbooking.html">All Bookings</a>
+            </div>
+        </div>
+        
+        <div class="dropdown">
+            <a class="sidebar-link dropdown-toggle" href="#" role="button" id="staffDropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-users-cog"></i> Staff
+            </a>
+            <div class="dropdown-menu" aria-labelledby="staffDropdown">
+                <a class="dropdown-item" href="./viewstaff.html">View Staff</a>
+                <a class="dropdown-item" href="./addstaff.html">Add New Staff</a>
+            </div>
+        </div>
+        
+        <div class="dropdown">
+            <a class="sidebar-link dropdown-toggle" href="#" role="button" id="enquiryDropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-comments"></i> Enquiry
+            </a>
+            <div class="dropdown-menu" aria-labelledby="enquiryDropdown">
+                <a class="dropdown-item" href="./viewmessage.html">View Messages</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-center mb-3">Total Bookings</h5>
+                            <p class="text-center">100</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-center mb-3">Total Users</h5>
+                            <p class="text-center">100</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-center mb-3">Total Enquiry</h5>
+                            <p class="text-danger text-center">100</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 class="text-center">Users</h3>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>John Doe</td>
+                                <td>john@gmail.com</td>
+                                <td>+9234567890</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="text-center">Enquiry</h3>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>John Doe</td>
+                                <td>johndoe@yahoo.com</td>  
+                                <td>+9234567890</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Hotel details random with table content -->
+        <div class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="text-center">Hotel Bookings</h3>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Hotel Name</th>
+                                <th>Location</th>
+                                <th>Check In</th>
+                                <th>Check Out</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Hotel Name</td>
+                                <td>Location</td>
+                                <td>Check In</td>
+                                <td>Check Out</td>
+                                <td>Price</td>
+                                <td>Status</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add google map -->
+        <div class="content">
+            <div class="row">
+                <div class="col-md-12">
+                        <h3 class="text-center">Google Map</h3>
+                        <div id="map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0000000000005!2d144.9613773152587!3d-37.818271079759!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642b0d1b7d3e7%3A0x4e0d3f3b3e0e3f0!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2s!4v1629783660003!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </section>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+            <script>
+                document.getElementById('sidebarToggle').addEventListener('click', function() {
+                    document.getElementById('sidebar').classList.toggle('expand');
+                    document.getElementById('content').classList.toggle('expand');
+                });
+            </script>            <!-- Add manage users section -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="/views/Admin/script.js"></script>
+        </body>
+        </html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BookingCo - About</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.staticaly.com/gh/hung1001/font-awesome-pro/8af0edd/css/all.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/Styles/style.css">
+<link rel="icon" type="image/x-icon" href="/Images/logo.webp">
+<style>
+    /* Custom CSS */
+    .team-card {
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+    .team-card:hover {
+        transform: translateY(-5px);
+    }
+    header{
+        padding: 10px;
+    }
+    footer {
+        background-color:#333;
+        padding: 20px;
+        text-align: center;
+    }
+    .contact-info, .social-links, .additional-links {
+        margin-top: 20px;
+    }
+    .social-links a {
+        margin: 0 10px;
+    }
+    .container {
+        position: relative; /* Ensure the container is positioned relative to the background image */
+        width: 1250px;
+        margin-top: 100px;
+        margin-bottom: 300px;
+        padding: 150px;
+        height: 590px;
+        text-align: center;
+        background-image: url('/Images/about.jpg'); /* Background image path */
+        background-size: cover; /* Adjust the background image size to cover the container */
+        border-radius: 10px; /* Optional: Add border-radius for rounded corners */
+    }
+    
+    .about-text {
+        background-color: rgba(255, 255, 255, 0.9); /* White background with opacity */
+        border-radius: 10px; /* Optional: Add border-radius for rounded corners */
+        padding: 100px; /* Optional: Add padding for content inside the white background */
+        margin-top: 280px; /* Adjust margin top as needed */
+        text-align: left; /* Align text inside the white background */
+        font-size: 18px;
+        margin-bottom: 1000px;
+        line-height: 1.6;
+        width:950px;
+        margin-right: 200px;
+        left: 200px;
+    }
+        .container p{
+        margin-left: 20px;
+        margin-right: 20px;
+        text-align:left;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .container h1{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        text-align: center;
+        margin-bottom: 10px;
+        margin-top: -40px;
+    }
+    .overlap-box {
+        position: absolute; /* Add absolute positioning to the overlap box */
+        top: 50px; /* Adjust top position as needed */
+        left: 50px; /* Adjust left position as needed */
+        width: 200px; /* Adjust width as needed */
+        height: 100px; /* Adjust height as needed */
+        background-color: rgba(255, 255, 255, 0.5); /* Adjust background color and transparency as needed */
+        z-index: 1; /* Ensure the box is above other elements */
+    }
+    .container-list h2{
+        margin-top: 400px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color:white;
+        margin-bottom: 20px;
+    }
+    .card-container {
+        display: flex;
+        flex-wrap: nowrap; /* Prevent cards from wrapping to the next line */
+        justify-content: space-between; /* Space out the cards evenly */
+        overflow-x: auto; /* Enable horizontal scrolling if cards overflow */
+    }
+    
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        width: 30%; /* Set the width of each card */
+        max-width: 400px; /* Set maximum width for responsiveness */
+        text-align: center;
+        font-family: Arial;
+        border-radius: 20px; /* Rounded border radius */
+        overflow: hidden;
+        margin: 40px;
+    }
+    
+    
+    .card img {
+        width: 100%;
+        border-radius: 50%;
+        margin-bottom: 20px;
+        margin-left: 40px;
+        margin-top:20px;
+    }
+    
+    .title {
+        color: grey;
+        font-size: 18px;
+    }
+    
+    .card button {
+        border: none;
+        outline: 0;
+        display: inline-block;
+        padding: 8px;
+        color: white;
+        background-color: #000;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+        transition: background-color 0.3s;
+    }
+    
+    .card button:hover {
+        opacity: 0.7;
+        background-color: #333; /* Darken the background color on hover */
+    }
+    
+    .social-icons {
+        margin: 20px 0;
+    }
+    
+    .social-icons a {
+        text-decoration: none;
+        padding: 5px;
+        color: black;
+        transition: opacity 0.3s;
+    }
+    
+    .social-icons a:hover {
+        opacity: 0.7;
+    }
+    
+    .card:hover {
+        transform: translateY(-5px); /* Move the card up slightly on hover */
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); /* Add a stronger box shadow on hover */
+    }
+    
+      
+</style>
+</head>
+<body>
+<div class="preloader">
+    <div class="spinner"></div>
+</div>
+<header class="d-flex flex-wrap justify-content-center py-3">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4 fw-bold">BookingCo</span>
+    </a>
+    <nav>   
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <% if (locals.user) { %>
+                <!-- Display user's name -->
+                <li><a href=""><%=user%></a></li>
+            <% } else { %>
+                <li><a href="/user">Login</a> / <a href="/createaccount">Sign Up</a></li>
+            <% } %>
+        </ul>
+    </nav>
+</header>
+<div class="container">
+    <div class="about-text">
+        <h1>About Us</h1>
+        <p class="lead fs-5 text">BookingCo is a hotel booking website that allows users to book hotel rooms online. We provide a wide range of hotels to choose from, and we offer the best prices. Our website is user-friendly and easy to navigate. We also provide a secure payment gateway to ensure that your transactions are safe and secure. Our customer service team is available 24/7 to assist you with any queries or concerns. We are committed to providing our customers with the best experience and the best value for their money. Book with us today and enjoy a hassle-free booking experience!</p>
+    </div>
+    <div class="overlap-box"></div> <!-- Add the overlap box here -->
+</div>
+<div class="container-list">
+    <h2 class="text-center">Meet the Team</h2>
+    <!-- Team members cards container -->
+    <div class="card-container">
+        <!-- First card -->
+        <div class="card">
+            <img src="/Images/profile.jpeg" alt="John" style="width:80%">
+            <h1>Vinayak V Thayil</h1>
+            <p class="title">Frontend and Backend Developer</p>
+            <div class="social-icons">
+                <a href="#"><i class="fa fa-facebook"></i></a> 
+                <a href="#"><i class="fa fa-twitter"></i></a> 
+                <a href="#"><i class="fa fa-linkedin"></i></a> 
+                <a href="#"><i class="fa fa-instagram"></i></a> 
+            </div>
+        </div>
+        
+        <!-- Second card -->
+        <div class="card">
+            <img src="/Images/profile.jpeg" alt="John" style="width:80%">
+            <h1>Kishan P</h1>
+            <p class="title">Backend Developer</p>
+            <div class="social-icons">
+                <a href="#"><i class="fa fa-facebook"></i></a> 
+                <a href="#"><i class="fa fa-twitter"></i></a> 
+                <a href="#"><i class="fa fa-linkedin"></i></a> 
+                <a href="#"><i class="fa fa-instagram"></i></a> 
+            </div>
+        </div>
+        
+        <!-- Third card -->
+        <div class="card">
+            <img src="/Images/profile.jpeg" alt="John" style="width:80%">
+            <h1>Kiran P</h1>
+            <p class="title">App Developer</p>
+            <div class="social-icons">
+                <a href="#"><i class="fa fa-facebook"></i></a> 
+                <a href="#"><i class="fa fa-twitter"></i></a> 
+                <a href="#"><i class="fa fa-linkedin"></i></a> 
+                <a href="#"><i class="fa fa-instagram"></i></a> 
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4 fw-bold">BookingCo</span>
+    </a>
+    <div class="contact-info">
+        <p><i class="fas fa-phone-alt"></i> Phone: </p>
+        <p><i class="fas fa-envelope"></i> Email: info@example.com</p>
+    </div>
+    <div class="social-links">
+        <a href="#"><img src="https://www.edigitalagency.com.au/wp-content/uploads/Facebook-logo-blue-circle-large-white-f.png" alt="Facebook"></a>
+        <a href="#"><img src="https://about.twitter.com/content/dam/about-twitter/x/brand-toolkit/logo-black.png.twimg.1920.png" alt="Twitter"></a>
+        <a href="#"><img src="https://www.edigitalagency.com.au/wp-content/uploads/new-Instagram-logo-png-full-colour-glyph-medium-size-450-pixels.png" alt="Instagram"></a>
+    </div>
+    <div class="additional-links">
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">FAQs</a>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Show the preloader
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelector('.preloader').style.display = 'block';
+    });
+
+    // Hide the preloader when the page has fully loaded
+    window.addEventListener("load", function() {
+        document.querySelector('.preloader').style.display = 'none';
+    });
+</script>
+<script src="./main.js"></script>
+</body>
+</html>

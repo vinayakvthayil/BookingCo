@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BookingCo - Admin Page</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+rel="stylesheet"
+integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+crossorigin="anonymous"/>
+<link href="https://cdn.staticaly.com/gh/hung1001/font-awesome-pro/8af0edd/css/all.css"
+rel="stylesheet"/>
+<link rel="stylesheet" href="./style.css">
+<link rel="icon" type="image/x-icon" href="/Images/logo.webp">
+</head>
+<body>
+    <style>
+        span{
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+    </style>
+   <header class="d-flex flex-wrap justify-content-center py-3">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+            <span class="fs-4 fw-bold">BookingCo</span>
+        </a>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <!-- Dashboard -->
+            <a class="btn btn-outline-primary me-2" href="./Admin.html" id="dashboardLink">Dashboard</a>
+        </nav>
+    </header>
+    <div class="content">
+        <div class="row mt-3">
+                <div class="col">
+                    <h2 class="mb-4">Edit Hotel</h2>
+                    <form id="addHotelForm">
+                        <div class="mb-3">
+                            <label for="hotelName" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="hotelName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="hotelLocation" class="form-label">Location</label>
+                            <input type="text" class="form-control" id="hotelLocation" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="hotelRating" class="form-label">Rating</label>
+                            <input type="number" class="form-control" id="hotelRating" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="hotelDescription" class="form-label">Description</label>
+                            <textarea class="form-control" id="hotelDescription" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="hotelPrice" class="form-label">Price</label>
+                            <input type="number" class="form-control" id="hotelPrice" required>
+                        </div>
+                        <!--Upload photo-->
+                        <div class="mb-3">
+                            <label for="hotelPhoto" class="form-label">Photo</label>
+                            <input type="file" class="form-control" id="hotelPhoto" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </form>
+                </div>
+            </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pzjw8f+ua7qJy4rXpGEm2Wsk9KLjcf4PA2rVizPIYj78s2V9uv56S6EZJ3U5KsUZ" crossorigin="anonymous"></script>
+<script src="/script.js"></script>
+</body>
+</html>

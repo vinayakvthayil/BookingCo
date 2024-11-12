@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BookingCo - Admin Page</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+rel="stylesheet"
+integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+crossorigin="anonymous"/>
+<link href="https://cdn.staticaly.com/gh/hung1001/font-awesome-pro/8af0edd/css/all.css"
+rel="stylesheet"/>
+<link rel="stylesheet" href="./style.css">
+<link rel="icon" type="image/x-icon" href="/Images/logo.webp">
+</head>
+<body>
+    <style>
+        span{
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+    </style>
+   <header class="d-flex flex-wrap justify-content-center py-3">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+            <span class="fs-4 fw-bold">BookingCo</span>
+        </a>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <!-- Dashboard -->
+            <a class="btn btn-outline-primary me-2" href="./Admin.html" id="dashboardLink">Dashboard</a>
+        </nav>
+    </header>
+    <div class="content">
+        <!--Add edit user option-->
+        <div class="row mt-3">
+            <div class="col">
+                <h1>Edit User</h1>
+                <form action="/edituser" method="POST">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username" name="username" value="username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" value="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone</label>
+                        <input type="text" class="form-control" id="phone" name="phone" value="phone" required>
+                        </div>
+                    <button type="submit" class="btn btn-primary">Update User</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-m85n4xu0f0g3JH3Fm3ZxZL6An7Adw4Mz/1vGmO6LZd6D5e9UJF8RqB/a3b6VhJGj" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>

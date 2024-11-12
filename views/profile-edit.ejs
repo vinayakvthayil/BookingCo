@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BookingCo - profile edit</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+rel="stylesheet"
+integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+crossorigin="anonymous"/>
+<link href="https://cdn.staticaly.com/gh/hung1001/font-awesome-pro/8af0edd/css/all.css"
+rel="stylesheet"/>
+<link rel="stylesheet" href="/Styles/style.css">
+<link rel="icon" type="image/x-icon" href="/Images/logo.webp">
+</head>
+<body>
+    <div class="preloader">
+        <div class="spinner"></div>
+    </div>
+
+<header class="d-flex flex-wrap justify-content-center py-3">
+<a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+<span class="fs-4 fw-bold">BookingCo</span></a>
+<nav>
+    <ul>
+        <li><a href="/home">Home</a></li>
+                  <!-- Add more currencies as needed -->
+                </select>
+                <% if (locals.user) { %>
+                    <!-- Display user's name -->
+                    <li class="user-profile">
+                            <%= user %>
+                            <!-- Dropdown menu for profile and logout -->
+                            <div class="dropdown-content">
+                                <a href="/profile">Profile</a>
+                                <a href="/logout">Logout</a>
+                            </div>
+                        </a>
+                    </li>
+                <% } else { %>
+                    <li><a href="/user">Login</a> / <a href="/createaccount">Sign Up</a></li>
+                <% } %>
+            </ul>    
+        </nav>
+        </header>
+<div id="booking" class="section">
+    <div class="profile-container">
+        <div class="profile-header">
+            <h3>Welcome to your profile page</h3>
+        </div>
+        <div class="profile-details">
+                <h4>Edit Profile</h4>
+                <form action="/profile-edit" method="post" id="profile-form">
+                    <div class="profile-info">
+                        <label for="username">Firstname:</label>
+                        <input type="text" id="username" name ="firstname">
+                    </div>
+                    <div class="profile-info">
+                        <label for="username">Lastname:</label>
+                        <input type="text" id="username" name ="lastname">
+                    </div>
+                    <div class="profile-info">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name ="email">
+                    </div>
+                    <div class="profile-info">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="profile-info">
+                        <label for="bio">Bio:</label>
+                        <textarea id="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</textarea>
+                    </div>
+                    <button type="submit" class="edit-button" onclick="editProfile()" 
+                    style="display: block; background-color:orange; color:white; width:50px; height: 40px; border-radius:10px">Save</button>
+                </form>  
+            <script>
+                    function editProfile(field) {
+                        var element = document.getElementById(field);
+                        element.contentEditable = true;
+                        element.focus();
+                        var editButton = document.querySelector(`button.edit-button[onclick="editProfile('${field}')]`);
+                        var saveButton = document.querySelector(`button.save-button[onclick="saveProfile('${field}')]`);
+                        editButton.style.display = "none";
+                        saveButton.style.display = "inline-block";
+                    }
+            
+                    function saveProfile(field) {
+                        var element = document.getElementById(field);
+                        element.contentEditable = false;
+                        var editButton = document.querySelector(`button.edit-button[onclick="editProfile('${field}')]`);
+                        var saveButton = document.querySelector(`button.save-button[onclick="saveProfile('${field}')]`);
+                        editButton.style.display = "inline-block";
+                        saveButton.style.display = "none";
+                    }
+            </script>   
+            <script>
+                // Show the preloader
+          document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector('.preloader').style.display = 'block';
+          });
+          
+          // Hide the preloader when the page has fully loaded
+          window.addEventListener("load", function() {
+            document.querySelector('.preloader').style.display = 'none';
+          });
+          
+              </script>
+</body>
+</html>

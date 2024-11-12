@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BookingCo - Hotel Booking</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+rel="stylesheet"
+integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+crossorigin="anonymous"/>
+<link href="https://cdn.staticaly.com/gh/hung1001/font-awesome-pro/8af0edd/css/all.css"
+rel="stylesheet"/>
+<link rel="icon" type="image/x-icon" href="/Images/logo.webp">
+<link rel="stylesheet" href="/Styles/style.css">
+</head>
+<body>
+    <div class="preloader">
+        <div class="spinner"></div>
+    </div>
+<header class="d-flex flex-wrap justify-content-center py-3" id="main-header">
+<a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+<span class="fs-4 fw-bold">BookingCo</span></a>
+<nav>
+    <ul>
+        <li><a href="/home">Home</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <% if (locals.user) { %>
+            <!-- Display user's name -->
+            <li class="user-profile">
+                    <%= user %>
+                    <!-- Dropdown menu for profile and logout -->
+                    <div class="dropdown-content">
+                        <a href="/profile">Profile</a>
+                        <a href="/mybooking">My Bookings</a>
+                        <a href="/logout">Logout</a>
+                    </div>
+                </a>
+            </li>
+        <% } else { %>
+            <li><a href="/user">Login</a> / <a href="/createaccount">Sign Up</a></li>
+        <% } %>
+    </ul>    
+</nav>
+</header>
+<section class="hero">
+    <div class="hero-content">
+        <h1>Book Your Dream Stay</h1>
+        <p>Discover amazing hotels at great prices.</p>
+        <a href="/hotel" class="cta-btn">Book Now</a>
+    </div>
+</section>
+<section class="search">
+    <div class="search-bar">
+        <form action="/search" method="post">
+        <div class="search-content">
+            <label>
+                Locaton: <input id="destination" type="text" name = "location" placeholder="Enter a location...">
+            </label>
+            <label>
+                Hotel name: <input id="hotelname" type="text" name ="hotelname" placeholder="Enter a hotel name...">
+            </label>
+            <label>Price:
+    <div id="price"></div>
+</label>
+            <label>Currency: 
+                <select name="currency" id="currencys">
+                    <option value="INR">INR (₹)</option>
+                    <option value="USD">USD ($)</option>
+                    <option value="EUR">EUR (€)</option>
+                    <option value="AED">AED (د.إ)</option>
+                    <option value="GBP">GBP (£)</option>
+                    <option value="CNY">CNY (¥)</option>
+                </select>
+            </label>
+            </form>            
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    var defaultOptions = '<select name="INR" id="price"><option value="">Select price range</option>'+
+                        '<option value="01000-5000">₹1000 - ₹5000</option>'+
+                        '<option value="05000-10000">₹5000 - ₹10000</option>'+
+                        '<option value="10000-20000">₹10000 - ₹20000</option>'+
+                        '<option value="20000-40000">₹20000 - ₹40000</option>'+
+                        '<option value="40000-50000">₹40000 - ₹50000</option>'+
+                        '<option value="50000-60000">₹50000 - ₹60000</option>'+
+                        '<option value="60000-200000">₹60000 - ₹200000</option></select>';
+
+                    var priceDropdown = document.getElementById("price");
+                    priceDropdown.innerHTML = defaultOptions;
+
+                    var categoryDropdown = document.getElementById('currencys');
+                    categoryDropdown.addEventListener('change', function() {
+                    var selectedCategory = this.value;
+                    var subcategoryOptions = '';
+
+                    switch (selectedCategory) {
+                        case 'USD':
+                            subcategoryOptions = '<select name="USD" id="price"><option value="">Select price range</option>'+
+                            '<option value="0100-1000">$100 - $1000</option>'+
+                            '<option value="1000-2000">$1000 - $2000</option>'+
+                            '<option value="2000-3000">$2000 - $3000</option>'+
+                            '<option value="3000-4000">$3000 - $4000</option>'+
+                            '<option value="4000-5000">$4000 - $5000</option>'+
+                            '<option value="5000-6000">$5000 - $6000</option>'+
+                            '<option value="6000-7000">$6000 - $7000</option></select>';
+                            break;
+                        case 'INR':
+                            subcategoryOptions = '<select name="INR" id="price"><option value="">Select price range</option>'+
+                            '<option value="01000-5000">₹1000 - ₹5000</option>'+
+                            '<option value="05000-10000">₹5000 - ₹10000</option>'+
+                            '<option value="10000-20000">₹10000 - ₹20000</option>'+
+                            '<option value="20000-40000">₹20000 - ₹40000</option>'+
+                            '<option value="40000-50000">₹40000 - ₹50000</option>'+
+                            '<option value="50000-60000">₹50000 - ₹60000</option>'+
+                            '<option value="60000-200000">₹60000 - ₹200000</option></select>';
+                            break;
+                        case 'EUR':
+                            subcategoryOptions = '<select name="EUR" id="price"><option value="">Select price range</option>'+
+                            '<option value="0100-900">€100 - €900</option>' +
+                            '<option value="1000-1900">€1000 - €1900</option>' +
+                            '<option value="2000-2900">€2000 - €2900</option>' +
+                            '<option value="3000-4000">€3000 - €4000</option>' +
+                            '<option value="4000-5000">€4000 - €5000</option>' +
+                            '<option value="5000-6000">€5000 - €6000</option>' +
+                            '<option value="6000-7000">€6000 - €7000</option></select>';                            
+                            break;
+                        case 'AED':
+                            subcategoryOptions = '<select name="AED" id="price"><option value="">Select price range</option>'+
+                            '<option value="00370-11000">AED 370 - AED 11000</option>'+
+                            '<option value="11000-14700">AED 11000 - AED 14700</option>'+
+                            '<option value="14700-18300">AED 14700 - AED 18300</option>'+
+                            '<option value="18300-22000">AED 18300 - AED 22000</option>'+
+                            '<option value="22000-25700">AED 22000 - AED 25700</option></select>';
+                            
+                            break;
+                        case 'GBP':
+                            subcategoryOptions ='<select name="GBP" id="price"><option value="">Select price range</option>'+
+                            '<option value="0100-3000">£100 - £3000</option>'+
+                            '<option value="3000-4000">£3000 - £4000</option>'+
+                            '<option value="4000-5000">£4000 - £5000</option>'+
+                            '<option value="5000-6000">£5000 - £6000</option>'+
+                            '<option value="6000-7000">£6000 - £7000</option></select>';
+                            break;
+                        case 'CNY':
+                            subcategoryOptions = '<select name="CNY" id="price"><option value="">Select price range</option>'+
+                            '<option value="0700-3000">¥700 - ¥3000</option>'+
+                            '<option value="3000-4000">¥3000 - ¥4000</option>'+
+                            '<option value="4000-5000">¥4000 - ¥5000</option>'+
+                            '<option value="5000-6000">¥5000 - ¥6000</option>'+
+                            '<option value="6000-7000">¥6000 - ¥7000</option></select>';
+                            
+                            break;
+                        // Add cases for more categories as needed
+                        default:
+                            subcategoryOptions = defaultOptions; // If no category is selected or matched, show default options
+                    }
+                    
+                    // Update subcategory dropdown with new options
+                    priceDropdown.innerHTML = subcategoryOptions;
+                });
+            });
+            </script>
+               
+            <button type="submit" id="cta-btn">Search</button>
+        </div>
+    </form> 
+    </div>
+</section>
+
+<script>
+    // Get the header element
+const header = document.getElementById('main-header');
+
+// Function to handle scroll event
+function handleScroll() {
+    if (window.scrollY > 0) {
+        // Add the header-scrolled class when scrolling down
+        header.classList.add('header-scrolled');
+    } else {
+        // Remove the header-scrolled class when scrolling up to the top
+        header.classList.remove('header-scrolled');
+    }
+}
+
+// Listen for scroll events
+window.addEventListener('scroll', handleScroll);
+
+    document.getElementById('search-button').addEventListener('click', function(e) {
+        var destination = document.getElementById('destination').value;
+        var checkin = document.getElementById('checkin').value;
+        var checkout = document.getElementById('checkout').value;
+        var adults = document.getElementById('adults').value;
+        var children = document.getElementById('children').value;
+
+        var destinations = ["Mumbai", "Paris", "New York", "Dubai", "London", "Kerala", "Maldives", "Sydney"]; // Add your destinations here
+
+        if (!destination || !checkin || !checkout || !adults || !children) {
+            e.preventDefault();
+            alert('Please fill in all the fields before searching.');
+        }else {
+            document.getElementById('search-link').href = "./hotel.html";
+        }
+    });
+</script>
+</div>
+</section> 
+</section>
+<section class="top-destination">
+    <h2>Top Destinations</h2>
+    <div class="destination-list">
+        <div class="destination-item">
+            <img src="https://media.istockphoto.com/id/157560217/photo/mumbai-skyline-at-night.jpg?s=612x612&w=0&k=20&c=iVoYahNFlCNANHweqSFmeRTIhY4kKAYPuKzmFInypEw=" alt="Mumbai">
+            <h3>Mumbai</h3>
+            <a href="/hotel" class="cta-btn">Book Now</a>
+        </div>
+        <div class="destination-item">
+            <img src="https://t3.ftcdn.net/jpg/02/45/70/70/360_F_245707051_nAlkopV8DCqIUJMLnautG2pBCQi6lkwO.jpg" alt="Paris">
+            <h3>Paris</h3>
+            <a href="/hotel" class="cta-btn">Book Now</a>
+        </div>
+        <div class="destination-item">
+            <img src="https://t4.ftcdn.net/jpg/01/26/21/61/360_F_126216157_NMcUhK1iOgw2asroRaX0686iYgjbdMNr.jpg" alt="New York">
+            <h3>New York</h3>
+            <a href="/hotel" class="cta-btn">Book Now</a>
+        </div>
+        <div class="destination-item">
+            <img src="https://t4.ftcdn.net/jpg/01/80/78/75/360_F_180787547_2tJQRGs7f6QMuTetPwh5SxzafHLcxd8q.jpg" alt="Dubai">
+            <h3>Dubai</h3>
+            <a href="/hotel" class="cta-btn">Book Now</a>
+        </div>
+        <div class="destination-item">
+            <img src="https://media.gettyimages.com/id/1312320759/photo/regent-street-at-sunset-london-england-uk.jpg?s=612x612&w=0&k=20&c=xPyvEYl99uvHkc8tWdGwoCgPmj8q3uHEGdR14N4OBw8=" alt="London">
+            <h3>London</h3>
+            <a href="/hotel" class="cta-btn">Book Now</a>
+        </div>
+        <div class="destination-item">
+            <img src="https://toim.b-cdn.net/pictures/tourintro/best-of-kerala-1078.jpeg" alt="Rome">
+            <h3>Kerala</h3>
+            <a href="/hotel" class="cta-btn">Book Now</a>
+        </div>
+        <div class="destination-item">
+            <img src="https://media.gettyimages.com/id/155139968/photo/island-of-maldives.jpg?s=612x612&w=0&k=20&c=yAU5rrmC2sdAnV2DSsBlXbxJf8IrMyGlKvGJ0n7Tdbk=" alt="Tokyo">
+            <h3>Maldives</h3>
+            <a href="/hotel" class="cta-btn">Book Now</a>
+        </div>
+        <div class="destination-item">
+            <img src="https://media.gettyimages.com/id/468994239/photo/sydney.jpg?s=612x612&w=0&k=20&c=16AnH70SaaHh02GzTSrItExrDNXm3ZU1XnrzL8Ro6PU=" alt="Sydney">
+            <h3>Sydney</h3>
+            <a href="/hotel" class="cta-btn">Book Now</a>
+        </div>
+    </div>
+</section>
+<section class="featured-hotels">
+    <h2>Featured Hotels</h2>
+    <div class="hotel-container">
+        <!-- Indian Hotels -->
+        <% hotels.forEach(function(hotel) { %>
+            <div class="hotel ms-5">
+              <form action="/hotel" method="get">
+              <h2><%= hotel.hotelname %></h2>
+              <input type="hidden" name="hotelname" value="<%= hotel.hotelname %>">
+              <div class="hotel-info">
+              <p><%= hotel.location %></p>
+              <p>Rating: <span class="rating"><%= hotel.rating %></span></p>
+              <p>Likes: <span class="likes" id="likes" onclick="incrementLikes('likes')">❤️ <%= hotel.likes %></span></p>
+              <p class="description"><%= hotel.description %></p>
+              <% if (locals.USD) { %>
+              <p>Price per night: ($) <%= hotel.pricepernight %></p>
+              <input type="hidden" name="price" value="<%= hotel.pricepernight %>">
+              <% } else if (locals.india) { 
+                var price = hotel.pricepernight*82.91;
+              %>
+              <p>Price per night: (₹) <%= price %></p>
+              <input type="hidden" name="price" value="<%= price %>">
+              <% } else if (locals.EUR) { 
+                var price = hotel.pricepernight*0.85;  
+              %>
+              <p>Price per night: (€) <%= price %></p>
+              <input type="hidden" name="price" value="<%= price %>">
+              <% } else if (locals.AED) { 
+                var price = hotel.pricepernight*3.67;  
+              %>
+              <p>Price per night: (د.إ) <%= price %></p>
+              <input type="hidden" name="price" value="<%= price %>">
+              <% } else if (locals.GBP) { 
+                var price = hotel.pricepernight*0.72;  
+              %>
+              <p>Price per night: (£) <%= price %></p>
+              <input type="hidden" name="price" value="<%= price %>">
+              <% } else if (locals.CNY) { 
+                var price = hotel.pricepernight*6.46;  
+              %>
+              <p>Price per night: (¥) <%= price %></p>
+              <input type="hidden" name="price" value="<%= price %>">
+              <% } %>
+              <img src="taj_mahal_palace.jpg" alt="Taj Mahal Palace">
+              <button type="submit" class="book-now" >Book Now</button>
+              </div>
+              </form>
+          </div>
+          <% }); %>
+        </div>
+                    <script>
+                        // Define the convertCurrency function
+function convertCurrency(currency) {
+    var priceElements = document.querySelectorAll('.price');
+    
+    priceElements.forEach(function(element) {
+        var originalPrice = parseFloat(element.getAttribute('data-original-price'));
+        var convertedPrice;
+        
+        switch(currency) {
+            case 'USD':
+                convertedPrice = originalPrice;
+                element.textContent = `Starting from $${convertedPrice.toFixed(2)}/night`;
+                break;
+            case 'INR':
+                convertedPrice = originalPrice * 82.9115; // Conversion rate from USD to INR
+                element.textContent = `Starting from ₹${convertedPrice.toFixed(2)}/night`;
+                break;
+            case 'EUR':
+                convertedPrice = originalPrice * 0.85; // Conversion rate from USD to EUR
+                element.textContent = `Starting from €${convertedPrice.toFixed(2)}/night`;
+                break;
+            case 'AED':
+                convertedPrice = originalPrice * 3.67; // Conversion rate from USD to AED
+                element.textContent = `Starting from د.إ${convertedPrice.toFixed(2)}/night`;
+                break;
+            case 'GBP':
+                convertedPrice = originalPrice * 0.72; // Conversion rate from USD to GBP
+                element.textContent = `Starting from £${convertedPrice.toFixed(2)}/night`;
+                break;
+            case 'CNY':
+                convertedPrice = originalPrice * 6.46; // Conversion rate from USD to CNY
+                element.textContent = `Starting from ¥${convertedPrice.toFixed(2)}/night`;
+                break;
+            // Add more cases for other currencies
+        }
+    });
+}
+
+// Get a reference to the currency select element
+var currencySelect = document.getElementById('currency');
+
+// Add an event listener to detect changes in the currency selection
+currencySelect.addEventListener('change', function() {
+    var selectedCurrency = currencySelect.value;
+    convertCurrency(selectedCurrency);
+});
+
+// Call the convertCurrency function initially to set the prices based on the default currency
+convertCurrency(currencySelect.value);
+
+                        
+                    </script>   
+        <!-- Add more hotel items as needed -->
+</section> 
+<!--add testimonials with swiper dote--> 
+<section class="testimonials">
+    <h2>What Our Customers Say</h2>
+    <div class="testimonial-container">
+        <div class="swiper-container">
+            <div class="swiper-wrapper" style="display: flex;">
+                <div class="swiper-slide">
+                    <div class="testimonial-item">
+                        <p>"I had the best experience booking my hotel through BookingCo. The process was quick and easy, and I found the perfect hotel for my trip."</p>
+                        <h3>John Doe</h3>
+                        <span>London, UK</span>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="testimonial-item">
+                        <p>"I've been using BookingCo for years now, and I've never been disappointed. The website is user-friendly, and the customer service is top-notch."</p>
+                        <h3>Jane Smith</h3>
+                        <span>New York, USA</span>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="testimonial-item">
+                        <p>"I was able to find a great deal on a hotel in Paris through BookingCo. The hotel was amazing, and the location was perfect. I highly recommend it!"</p>
+                        <h3>David Johnson</h3>
+                        <span>Paris, France</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</section>
+
+<script>
+    // Initialize Swiper
+    var swiper = new Swiper('.swiper-container', {
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+    });
+</script>
+
+<footer>
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4 fw-bold">BookingCo</span></a>
+    <div class="contact-info">
+        <p><i class="fas fa-phone-alt"></i> Phone: </p>
+        <p><i class="fas fa-envelope"></i> Email: info@example.com</p>
+    </div>
+    <div class="social-links">
+        <a href="#"><img src="https://www.edigitalagency.com.au/wp-content/uploads/Facebook-logo-blue-circle-large-white-f.png" alt="Facebook"></a>
+        <a href="#"><img src="https://about.twitter.com/content/dam/about-twitter/x/brand-toolkit/logo-black.png.twimg.1920.png" alt="Twitter"></a>
+        <a href="#"><img src="https://www.edigitalagency.com.au/wp-content/uploads/new-Instagram-logo-png-full-colour-glyph-medium-size-450-pixels.png" alt="Instagram"></a>
+    </div>
+    <div class="additional-links">
+
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">FAQs</a>
+    </div>
+</footer>
+<div class="back-to-top">
+    <a id="back-to-top" href="#">↑</a>
+    </div>
+    <div class="copyright">
+    </div>
+    </div>
+    <script>
+    var mybutton = document.getElementById("back-to-top");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    mybutton.addEventListener('click', backToTop);
+
+    function backToTop() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+    </script>
+    <script>
+        // Show the preloader
+  document.addEventListener("DOMContentLoaded", function() {
+    document.querySelector('.preloader').style.display = 'block';
+  });
+  
+  // Hide the preloader when the page has fully loaded
+  window.addEventListener("load", function() {
+    document.querySelector('.preloader').style.display = 'none';
+  });
+  
+      </script>
+<script src="./main.js"></script>
+</body>
+</html>
