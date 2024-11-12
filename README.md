@@ -48,8 +48,9 @@ node index.js
 - **Database**: PostgreSQL
 
 ## Web Application
-![Screenshot 2024-11-12 222034](https://github.com/user-attachments/assets/bb646493-4e5d-405a-abf3-bee413f2e2e4)
-![Screenshot 2024-11-12 222128](https://github.com/user-attachments/assets/78749852-4b4f-4308-aedd-344518c022be)
+![Screenshot 2024-11-12 222034](https://github.com/user-attachments/assets/34cbec92-6857-4bfe-b43f-abab6512effb)
+![Screenshot 2024-11-12 222128](https://github.com/user-attachments/assets/b7287062-9fb2-4b3c-b123-15e038334f18)
+
 
 ## Mobile Application
 
