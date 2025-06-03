@@ -1,5 +1,5 @@
 # BookingCo-Hotel-Booking-Application
-An interactive platform to browse, book, and manage hotel reservations seamlessly. This project includes both a website and an application to provide users with a smooth booking experience.
+An interactive platform to browse, book, and manage hotel reservations seamlessly. This project includes  a website to provide users with a smooth booking experience.
 
 ## About the Project
 This project allows users to browse hotels, check availability, and book rooms. It includes various features such as search filters, user authentication, booking management, and payment options. 
